@@ -1,0 +1,3 @@
+[0m[[0m[31merror[0m] [0m[0m[Error] C:\Users\Usuario\Desktop\Proyectos\CLOUD\REST\play\app\views\_mi_parcial.scala.xml:3[0m
+[0m[[0m[31merror[0m] [0m[0m    <age> @edad</age>: Expected '}' but found 'EOF'[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mtwirlCompileTemplates[0m) Twirl compilation failed[0m

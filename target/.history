@@ -1,0 +1,42 @@
+compile
+run
+exit
+;set _root_.scala.collection.Seq(historyPath := None,shellPrompt := { _ => "" },SettingKey[_root_.scala.Option[_root_.sbt.File]]("sbtStructureOutputFile") in _root_.sbt.Global := _root_.scala.Some(_root_.sbt.file("C:/Users/Usuario/AppData/Local/Temp/sbt-structure.xml")),SettingKey[_root_.java.lang.String]("sbtStructureOptions") in _root_.sbt.Global := "download, resolveClassifiers");apply -cp "C:/Users/Usuario/AppData/Roaming/JetBrains/IdeaIC2021.2/plugins/Scala/repo/org/jetbrains/scala/sbt-structure-extractor_2.12_1.0/2021.1.1/sbt-structure-extractor-2021.1.1.jar" org.jetbrains.sbt.CreateTasks;*/*:dumpStructure
+run
+exit
+;set _root_.scala.collection.Seq(historyPath := None,shellPrompt := { _ => "" },SettingKey[_root_.scala.Option[_root_.sbt.File]]("sbtStructureOutputFile") in _root_.sbt.Global := _root_.scala.Some(_root_.sbt.file("C:/Users/Usuario/AppData/Local/Temp/sbt-structure.xml")),SettingKey[_root_.java.lang.String]("sbtStructureOptions") in _root_.sbt.Global := "download, resolveClassifiers");apply -cp "C:/Users/Usuario/AppData/Roaming/JetBrains/IdeaIC2021.2/plugins/Scala/repo/org/jetbrains/scala/sbt-structure-extractor_2.12_1.0/2021.1.1/sbt-structure-extractor-2021.1.1.jar" org.jetbrains.sbt.CreateTasks;*/*:dumpStructure
+reload
+compile
+clean
+compile
+run
+compile
+quit
+exit
+;set _root_.scala.collection.Seq(historyPath := None,shellPrompt := { _ => "" },SettingKey[_root_.scala.Option[_root_.sbt.File]]("sbtStructureOutputFile") in _root_.sbt.Global := _root_.scala.Some(_root_.sbt.file("C:/Users/Usuario/AppData/Local/Temp/sbt-structure.xml")),SettingKey[_root_.java.lang.String]("sbtStructureOptions") in _root_.sbt.Global := "download, resolveClassifiers");apply -cp "C:/Users/Usuario/AppData/Roaming/JetBrains/IdeaIC2021.2/plugins/Scala/repo/org/jetbrains/scala/sbt-structure-extractor_2.12_1.0/2021.1.1/sbt-structure-extractor-2021.1.1.jar" org.jetbrains.sbt.CreateTasks;*/*:dumpStructure
+reload
+compile
+reload
+compile
+run
+eex
+clean
+reload
+compile
+run
+clean
+reaload
+reload
+compile
+run
+exit
+clean
+reload
+compile
+run
+h2-browser
+run
+reload
+compile
+run
+qu

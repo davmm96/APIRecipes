@@ -1,0 +1,15 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+#USUARIOS
+GET      /usuarios                             controllers.UserController.getAllUsers(request: Request)
+GET      /usuario/:userName                     controllers.UserController.getUser(request: Request, userName: String)
+POST     /usuarios                             controllers.UserController.createUser(request: Request)
+#PUT      /usuario/:userId                      controllers.UserController.updateUser(userId)
+#DELETE   /usuario/:userId                      controllers.UserController.deleteUser(userId)
+
+#RECETAS
+#GET      /recetas                              controllers.RecipeController.getAllRecipes(request: Request)
+#GET      /receta/:recipeId                     controllers.RecipeController.getOneRecipe(recipeId: Long)
+#POST     /recetas                              controllers.RecipeController.createRecipe(request: Request)

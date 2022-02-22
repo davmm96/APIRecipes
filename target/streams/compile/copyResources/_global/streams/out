@@ -1,0 +1,7 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Usuario\Desktop\Proyectos\CLOUD\REST\play\conf\application.conf,C:\Users\Usuario\Desktop\Proyectos\CLOUD\REST\play\target\scala-2.13\classes\application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Usuario\Desktop\Proyectos\CLOUD\REST\play\conf\logback.xml,C:\Users\Usuario\Desktop\Proyectos\CLOUD\REST\play\target\scala-2.13\classes\logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Usuario\Desktop\Proyectos\CLOUD\REST\play\conf\messages,C:\Users\Usuario\Desktop\Proyectos\CLOUD\REST\play\target\scala-2.13\classes\messages)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Usuario\Desktop\Proyectos\CLOUD\REST\play\conf\messages.en,C:\Users\Usuario\Desktop\Proyectos\CLOUD\REST\play\target\scala-2.13\classes\messages.en)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Usuario\Desktop\Proyectos\CLOUD\REST\play\conf\routes,C:\Users\Usuario\Desktop\Proyectos\CLOUD\REST\play\target\scala-2.13\classes\routes)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Usuario\Desktop\Proyectos\CLOUD\REST\play\conf\evolutions\default\1.sql,C:\Users\Usuario\Desktop\Proyectos\CLOUD\REST\play\target\scala-2.13\classes\evolutions\default\1.sql)[0m
