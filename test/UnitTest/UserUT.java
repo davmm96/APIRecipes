@@ -4,7 +4,7 @@ import models.User;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-public class Users{
+public class UserUT {
 
     @Test
     public void checkNick() {

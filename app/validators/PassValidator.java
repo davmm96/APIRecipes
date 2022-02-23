@@ -14,7 +14,7 @@ public class PassValidator extends Constraints.Validator<String> implements Cons
 
     @Override
     public boolean isValid(String value) {
-        return value.matches("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8}");
+        return (value != null && value.matches("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}"));
     }
 
 }

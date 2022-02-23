@@ -38,7 +38,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """usuarios""", """controllers.UserController.getAllUsers(request:Request)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """usuario/""" + "$" + """userId<[^/]+>""", """controllers.UserController.getUser(request:Request, userId:String)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """usuarios""", """controllers.UserController.createUser(request:Request)"""),
-    ("""PATCH""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """usuario/""" + "$" + """userId<[^/]+>""", """controllers.UserController.updateUser(request:Request, userId:String)"""),
+    ("""PUT""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """usuario/""" + "$" + """userId<[^/]+>""", """controllers.UserController.updateUser(request:Request, userId:String)"""),
+    ("""PATCH""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """usuario/""" + "$" + """userId<[^/]+>""", """controllers.UserController.updateUserNick(request:Request, userId:String)"""),
     ("""DELETE""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """usuario/""" + "$" + """userId<[^/]+>""", """controllers.UserController.deleteUser(request:Request, userId:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -108,7 +109,7 @@ class Routes(
   )
 
   // @LINE:9
-  private[this] lazy val controllers_UserController_updateUser3_route = Route("PATCH",
+  private[this] lazy val controllers_UserController_updateUser3_route = Route("PUT",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("usuario/"), DynamicPart("userId", """[^/]+""",true)))
   )
   private[this] lazy val controllers_UserController_updateUser3_invoker = createInvoker(
@@ -120,7 +121,7 @@ class Routes(
       "controllers.UserController",
       "updateUser",
       Seq(classOf[play.mvc.Http.Request], classOf[String]),
-      "PATCH",
+      "PUT",
       this.prefix + """usuario/""" + "$" + """userId<[^/]+>""",
       """""",
       Seq()
@@ -128,10 +129,30 @@ class Routes(
   )
 
   // @LINE:10
-  private[this] lazy val controllers_UserController_deleteUser4_route = Route("DELETE",
+  private[this] lazy val controllers_UserController_updateUserNick4_route = Route("PATCH",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("usuario/"), DynamicPart("userId", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_UserController_deleteUser4_invoker = createInvoker(
+  private[this] lazy val controllers_UserController_updateUserNick4_invoker = createInvoker(
+    
+    (req:play.mvc.Http.Request) =>
+      UserController_0.updateUserNick(fakeValue[play.mvc.Http.Request], fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UserController",
+      "updateUserNick",
+      Seq(classOf[play.mvc.Http.Request], classOf[String]),
+      "PATCH",
+      this.prefix + """usuario/""" + "$" + """userId<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:11
+  private[this] lazy val controllers_UserController_deleteUser5_route = Route("DELETE",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("usuario/"), DynamicPart("userId", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_UserController_deleteUser5_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
       UserController_0.deleteUser(fakeValue[play.mvc.Http.Request], fakeValue[String]),
@@ -179,9 +200,16 @@ class Routes(
       }
   
     // @LINE:10
-    case controllers_UserController_deleteUser4_route(params@_) =>
+    case controllers_UserController_updateUserNick4_route(params@_) =>
       call(params.fromPath[String]("userId", None)) { (userId) =>
-        controllers_UserController_deleteUser4_invoker.call(
+        controllers_UserController_updateUserNick4_invoker.call(
+          req => UserController_0.updateUserNick(req, userId))
+      }
+  
+    // @LINE:11
+    case controllers_UserController_deleteUser5_route(params@_) =>
+      call(params.fromPath[String]("userId", None)) { (userId) =>
+        controllers_UserController_deleteUser5_invoker.call(
           req => UserController_0.deleteUser(req, userId))
       }
   }

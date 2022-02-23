@@ -1,9 +1,8 @@
 package controllers;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.User;
+import models.User_patch;
 import play.data.Form;
 import play.data.FormFactory;
 import play.i18n.Messages;
@@ -45,9 +44,12 @@ public class UserController extends Controller
             {
                 return ok(Json.toJson(array_users));
             }
-            else {
+            else
+            {
+                Messages messages = messagesApi.preferred(request);
+
                 ObjectNode result = Json.newObject();
-                result.put("error","Unsupported format");
+                result.put("error",messages.at("conflict_format"));
                 return Results.status(406,result);
             }
         }
@@ -75,9 +77,12 @@ public class UserController extends Controller
         {
             return ok(Json.toJson(userFound));
         }
-        else {
+        else
+        {
+            Messages messages = messagesApi.preferred(request);
+
             ObjectNode result = Json.newObject();
-            result.put("error","Unsupported format");
+            result.put("error",messages.at("conflict_format"));
             return Results.status(406,result);
         }
     }
@@ -94,10 +99,12 @@ public class UserController extends Controller
         User user = userForm.get();
         User userFound = User.findUserByNick(user.getNick());
 
+        Messages messages = messagesApi.preferred(request);
+
         if(userFound != null)
         {
             ObjectNode result = Json.newObject();
-            result.put("conflict","The nick already exists, try another nick");
+            result.put("conflict",messages.at("conflict_user_exists"));
             return Results.status(409, result);
         }
 
@@ -114,7 +121,54 @@ public class UserController extends Controller
         }
         else {
             ObjectNode result = Json.newObject();
-            result.put("error","Unsupported format");
+            result.put("error",messages.at("conflict_format"));
+            return Results.status(406,result);
+        }
+    }
+
+    public Result updateUserNick(Http.Request request, String userId)
+    {
+        Form<User_patch> userForm = formFactory.form(User_patch.class).bindFromRequest(request);
+        Messages messages = messagesApi.preferred(request);
+
+        if(userForm.hasErrors())
+        {
+            return Results.notAcceptable(userForm.errorsAsJson());
+        }
+
+        User_patch user = userForm.get();
+        User userFound = User.findUserById(Long.valueOf(userId));
+
+        if(userFound == null)
+        {
+            return Results.notFound();
+        }
+
+        if(User.nickExists(user.getNick()) && !userFound.getNick().equals(user.getNick()))
+        {
+            ObjectNode result = Json.newObject();
+            result.put("conflict",messages.at("conflict_user_exists"));
+            return Results.status(409, result);
+        }
+
+        if(user.getNick() != null) {
+            userFound.setNick(user.getNick());
+        }
+
+        userFound.update();
+
+        if (request.accepts("application/xml"))
+        {
+            Content content = views.xml.user.render(userFound);
+            return Results.ok(content);
+        }
+        else if (request.accepts("application/json"))
+        {
+            return ok(Json.toJson(userFound));
+        }
+        else {
+            ObjectNode result = Json.newObject();
+            result.put("error",messages.at("conflict_format"));
             return Results.status(406,result);
         }
     }
@@ -122,6 +176,7 @@ public class UserController extends Controller
     public Result updateUser(Http.Request request, String userId)
     {
         Form<User> userForm = formFactory.form(User.class).bindFromRequest(request);
+        Messages messages = messagesApi.preferred(request);
 
         if(userForm.hasErrors())
         {
@@ -136,8 +191,23 @@ public class UserController extends Controller
             return Results.notFound();
         }
 
+        if(!user.getId().equals(Long.valueOf(userId)))
+        {
+            ObjectNode result = Json.newObject();
+            result.put("conflict",messages.at("conflict_userid"));
+            return Results.status(409, result);
+        }
+
+        if(User.nickExists(user.getNick()) && !userFound.getNick().equals(user.getNick()))
+        {
+            ObjectNode result = Json.newObject();
+            result.put("conflict",messages.at("conflict_user_exists"));
+            return Results.status(409, result);
+        }
+
         userFound.setNick(user.getNick());
         userFound.setPass(user.getPass());
+
         userFound.update();
 
         if (request.accepts("application/xml"))
@@ -151,7 +221,7 @@ public class UserController extends Controller
         }
         else {
             ObjectNode result = Json.newObject();
-            result.put("error","Unsupported format");
+            result.put("error",messages.at("conflict_format"));
             return Results.status(406,result);
         }
     }
@@ -168,22 +238,21 @@ public class UserController extends Controller
         userFound.delete();
 
         Messages messages = messagesApi.preferred(request);
-        String texto = messages.at("message_user_deleted");
 
         if (request.accepts("application/xml"))
         {
-            Content content = views.xml.message.render(texto);
+            Content content = views.xml.message.render(messages.at("message_user_deleted"));
             return Results.ok(content);
         }
         else if (request.accepts("application/json"))
         {
             ObjectNode result = Json.newObject();
-            result.put("message",texto);
+            result.put("message",messages.at("message_user_deleted"));
             return ok(result);
         }
         else {
             ObjectNode result = Json.newObject();
-            result.put("error","Unsupported format");
+            result.put("error",messages.at("conflict_format"));
             return Results.status(406,result);
         }
     }

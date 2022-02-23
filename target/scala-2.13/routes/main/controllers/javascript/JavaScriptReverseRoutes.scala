@@ -18,7 +18,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:10
+    // @LINE:11
     def deleteUser: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UserController.deleteUser",
       """
@@ -48,12 +48,22 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:10
+    def updateUserNick: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UserController.updateUserNick",
+      """
+        function(userId0) {
+          return _wA({method:"PATCH", url:"""" + _prefix + { _defaultPrefix } + """" + "usuario/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0))})
+        }
+      """
+    )
+  
     // @LINE:9
     def updateUser: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UserController.updateUser",
       """
         function(userId0) {
-          return _wA({method:"PATCH", url:"""" + _prefix + { _defaultPrefix } + """" + "usuario/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0))})
+          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "usuario/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0))})
         }
       """
     )

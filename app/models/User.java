@@ -2,14 +2,10 @@ package models;
 
 import io.ebean.Finder;
 import io.ebean.Model;
-import io.ebean.annotation.WhenCreated;
-import io.ebean.annotation.WhenModified;
 import play.data.validation.Constraints;
 import validators.Password;
 
 import javax.persistence.*;
-import javax.validation.Constraint;
-import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -21,11 +17,12 @@ public class User extends Model
     @Id
     private Long id;
 
-    @Constraints.Required(message = "error-nick")
-    @Constraints.MinLength(value=4,message = "error-nick_extension")
+    @Constraints.Required(message = "error_nick")
+    @Constraints.MinLength(value=2,message = "error_nick_extension")
     private String nick;
 
-    @Password(message = "error-pass")
+    @Constraints.Required(message = "error_pass_required")
+    @Password(message = "error_pass")
     private String pass;
 
     //Getters and setters
@@ -88,4 +85,8 @@ public class User extends Model
     {
         return finder.query().where().eq("nick",nick).findOne();
     }
+
+    public static boolean nickExists(String nick){return (findUserByNick(nick) != null); }
+
+    public static boolean idExists(Long id){return (findUserById(id) != null); }
 }

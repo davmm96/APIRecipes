@@ -1,5 +1,10 @@
-error-nick=El nick es obligatorio
-error-nick_extension=El nick debe tener mas de 4 caracteres
-error-pass=La contraseña debe tener al menos 8 caracteres, una mayuscula y un numero
+error_nick=El nick es obligatorio
+error_nick_extension=El nick debe tener mas de 4 caracteres
+error_pass=La contraseña debe tener al menos 8 caracteres, una mayuscula y un numero
+error_pass_required=La contraseña es obligatoria
+
+conflict_user_exists=Este nick ya esta en uso, prueba otro
+conflict_userid=No puedes cambiar la id del usuario
+conflict_format=Este formato no es soportado, solo se admite json o xml
 
 message_user_deleted=Usuario borrado correctamente
