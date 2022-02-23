@@ -11,6 +11,8 @@ PATCH    /usuario/:userId                       controllers.UserController.updat
 DELETE   /usuario/:userId                       controllers.UserController.deleteUser(request: Request, userId: String)
 
 #RECETAS
-#GET      /recetas                              controllers.RecipeController.getAllRecipes(request: Request)
-#GET      /receta/:recipeId                     controllers.RecipeController.getOneRecipe(recipeId: Long)
-#POST     /recetas                              controllers.RecipeController.createRecipe(request: Request)
+GET      /recetas                               controllers.RecipeController.getAllRecipes(request: Request)
+GET      /usuario/:userId/recetas               controllers.RecipeController.getUserRecipes(request: Request, userId: String)
+GET      /receta/:recipeId                      controllers.RecipeController.getOneRecipe(request: Request, recipeId: String)
+POST     /usuario/:userId/recetas               controllers.RecipeController.createRecipe(request: Request, userId: String)
+DELETE   /receta/:recipeId                      controllers.RecipeController.deleteRecipe(request: Request, recipeId: String)

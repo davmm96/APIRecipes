@@ -1,7 +1,6 @@
 package models;
 
 import play.data.validation.Constraints;
-import validators.Password;
 
 public class User_patch {
 

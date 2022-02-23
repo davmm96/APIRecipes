@@ -10,6 +10,45 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers {
 
+  // @LINE:14
+  class ReverseRecipeController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:16
+    def getOneRecipe(recipeId:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "receta/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("recipeId", recipeId)))
+    }
+  
+    // @LINE:14
+    def getAllRecipes(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "recetas")
+    }
+  
+    // @LINE:17
+    def createRecipe(userId:String): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "usuario/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("userId", userId)) + "/recetas")
+    }
+  
+    // @LINE:18
+    def deleteRecipe(recipeId:String): Call = {
+      
+      Call("DELETE", _prefix + { _defaultPrefix } + "receta/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("recipeId", recipeId)))
+    }
+  
+    // @LINE:15
+    def getUserRecipes(userId:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "usuario/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("userId", userId)) + "/recetas")
+    }
+  
+  }
+
   // @LINE:6
   class ReverseUserController(_prefix: => String) {
     def _defaultPrefix: String = {

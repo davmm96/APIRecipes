@@ -12,14 +12,11 @@ import play.mvc.*;
 import play.twirl.api.Content;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class UserController extends Controller
 {
-    private static ArrayList<User> users = new ArrayList<>();
-
     @Inject
     FormFactory formFactory;
 
@@ -31,7 +28,7 @@ public class UserController extends Controller
         Optional<String> opOffset = request.queryString("offset");
         String offset = opOffset.orElse("0");
 
-        List<User> array_users = User.findAllUsers(Integer.valueOf(offset));;
+        List<User> array_users = User.findAllUsers(Integer.valueOf(offset));
 
         if(!array_users.isEmpty())
         {

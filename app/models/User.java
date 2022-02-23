@@ -25,6 +25,9 @@ public class User extends Model
     @Password(message = "error_pass")
     private String pass;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "parentUser")
+    private List<Recipe> recipes;
+
     //Getters and setters
     public String getNick() {
         return nick;
@@ -76,10 +79,7 @@ public class User extends Model
         return finder.byId(id);
     }
 
-    public static List<User> findAllUsers(Integer offset)
-    {
-        return finder.query().where().setMaxRows(55).setFirstRow(offset).findList();
-    }
+    public static List<User> findAllUsers(Integer offset){ return finder.query().where().setMaxRows(5).setFirstRow(offset).findList();}
 
     public static User findUserByNick(String nick)
     {
@@ -88,5 +88,11 @@ public class User extends Model
 
     public static boolean nickExists(String nick){return (findUserByNick(nick) != null); }
 
-    public static boolean idExists(Long id){return (findUserById(id) != null); }
+    public List<Recipe> getRecipes() {
+        return recipes;
+    }
+
+    public void setRecipes(List<Recipe> recipes) {
+        this.recipes = recipes;
+    }
 }

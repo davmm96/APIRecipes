@@ -10,6 +10,66 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers.javascript {
 
+  // @LINE:14
+  class ReverseRecipeController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:16
+    def getOneRecipe: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecipeController.getOneRecipe",
+      """
+        function(recipeId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "receta/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("recipeId", recipeId0))})
+        }
+      """
+    )
+  
+    // @LINE:14
+    def getAllRecipes: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecipeController.getAllRecipes",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "recetas"})
+        }
+      """
+    )
+  
+    // @LINE:17
+    def createRecipe: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecipeController.createRecipe",
+      """
+        function(userId0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "usuario/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0)) + "/recetas"})
+        }
+      """
+    )
+  
+    // @LINE:18
+    def deleteRecipe: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecipeController.deleteRecipe",
+      """
+        function(recipeId0) {
+          return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "receta/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("recipeId", recipeId0))})
+        }
+      """
+    )
+  
+    // @LINE:15
+    def getUserRecipes: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecipeController.getUserRecipes",
+      """
+        function(userId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "usuario/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0)) + "/recetas"})
+        }
+      """
+    )
+  
+  }
+
   // @LINE:6
   class ReverseUserController(_prefix: => String) {
 
