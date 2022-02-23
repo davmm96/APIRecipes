@@ -52,7 +52,6 @@ public class UserController extends Controller
         }
     }
 
-
     public Result getUser(Http.Request request, String userId)
     {
         User userFound = User.findUserById(Long.valueOf(userId));
@@ -88,11 +87,13 @@ public class UserController extends Controller
         }
 
         User user = userForm.get();
+        User userFound = User.findUserByNick(user.getNick());
 
-
-        if(users.contains(user))
+        if(userFound != null)
         {
-            return Results.status(409);
+            ObjectNode result = Json.newObject();
+            result.put("conflict","The nick already exists, try another nick");
+            return Results.status(409, result);
         }
 
         user.save();
@@ -113,45 +114,69 @@ public class UserController extends Controller
         }
     }
 
-    public Result updateUser(Http.Request request, String userNick)
+    public Result updateUser(Http.Request request, String userId)
     {
-        User user = new User();
-        user.setNick(userNick);
+        Form<User> userForm = formFactory.form(User.class).bindFromRequest(request);
 
-        int indexFound = users.indexOf(user);
-
-        if(indexFound == -1)
+        if(userForm.hasErrors())
         {
-            return Results.notFound("Usuario no encontrado");
+            return Results.notAcceptable(userForm.errorsAsJson());
         }
 
-        User userFound = users.get(indexFound);
+        User user = userForm.get();
+        User userFound = User.findUserById(Long.valueOf(userId));
 
-        Optional<String> opNick = request.queryString("nick");
-        String nuevo_nick = opNick.orElse(userFound.getNick());
-
-        userFound.setNick(nuevo_nick);
-
-         return ok(Json.toJson(user))
-                        .withHeader("X-User-Count", String.valueOf(users.size()));
-    }
-
-    public Result deleteUser(String nick)
-    {
-        User user = new User();
-        user.setNick(nick);
-
-        int indexFound = users.indexOf(user);
-
-        if(indexFound == -1)
+        if(userFound == null)
         {
             return Results.notFound();
         }
 
-        User userFound = users.get(indexFound);
-        users.remove(userFound);
+        userFound.setNick(user.getNick());
+        userFound.setPass(user.getPass());
+        userFound.update();
 
-        return ok("Usuario borrado correctamente")
-                    .withHeader("X-User-Count", String.valueOf(users.size()));
+        if (request.accepts("application/xml"))
+        {
+            Content content = views.xml.user.render(userFound);
+            return Results.ok(content);
+        }
+        else if (request.accepts("application/json"))
+        {
+            return ok(Json.toJson(userFound));
+        }
+        else {
+            ObjectNode result = Json.newObject();
+            result.put("error","Unsupported format");
+            return Results.status(406,result);
+        }
+    }
+
+    public Result deleteUser(Http.Request request, String userId)
+    {
+        User userFound = User.findUserById(Long.valueOf(userId));
+
+        if(userFound == null)
+        {
+            return Results.notFound();
+        }
+
+        userFound.delete();
+
+        if (request.accepts("application/xml"))
+        {
+            Content content = views.xml.message.render("User deleted");
+            return Results.ok(content);
+        }
+        else if (request.accepts("application/json"))
+        {
+            ObjectNode result = Json.newObject();
+            result.put("message","User deleted");
+            return ok(result);
+        }
+        else {
+            ObjectNode result = Json.newObject();
+            result.put("error","Unsupported format");
+            return Results.status(406,result);
+        }
     }
 }

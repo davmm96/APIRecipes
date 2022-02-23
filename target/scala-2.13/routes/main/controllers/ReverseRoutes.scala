@@ -17,10 +17,16 @@ package controllers {
     }
 
   
-    // @LINE:6
-    def getAllUsers(): Call = {
+    // @LINE:10
+    def deleteUser(userId:String): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "usuarios")
+      Call("DELETE", _prefix + { _defaultPrefix } + "usuario/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("userId", userId)))
+    }
+  
+    // @LINE:7
+    def getUser(userId:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "usuario/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("userId", userId)))
     }
   
     // @LINE:8
@@ -29,10 +35,16 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "usuarios")
     }
   
-    // @LINE:7
-    def getUser(userId:String): Call = {
+    // @LINE:9
+    def updateUser(userId:String): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "usuario/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("userId", userId)))
+      Call("PUT", _prefix + { _defaultPrefix } + "usuario/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("userId", userId)))
+    }
+  
+    // @LINE:6
+    def getAllUsers(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "usuarios")
     }
   
   }

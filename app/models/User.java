@@ -1,19 +1,14 @@
 package models;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.ebean.Finder;
 import io.ebean.Model;
-import io.ebean.annotation.Min;
 import io.ebean.annotation.WhenCreated;
 import io.ebean.annotation.WhenModified;
 import play.data.validation.Constraints;
-import validators.I_PassValidator;
-import validators.PassValidator;
+import validators.Password;
 
 import javax.persistence.*;
-import javax.validation.Constraint;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -37,7 +32,7 @@ public class User extends Model
     @Constraints.Required
     private String nick;
 
-    @I_PassValidator
+    @Password
     private String pass;
 
     //Getters and setters
@@ -117,6 +112,11 @@ public class User extends Model
 
     public static List<User> findAllUsers(Integer offset)
     {
-        return finder.query().where().setMaxRows(5).setFirstRow(offset).findList();
+        return finder.query().where().setMaxRows(55).setFirstRow(offset).findList();
+    }
+
+    public static User findUserByNick(String nick)
+    {
+        return finder.query().where().eq("nick",nick).findOne();
     }
 }

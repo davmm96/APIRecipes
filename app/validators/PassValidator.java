@@ -5,7 +5,7 @@ import play.libs.F;
 
 import javax.validation.ConstraintValidator;
 
-public class PassValidator extends Constraints.Validator<String> implements ConstraintValidator<I_PassValidator, String> {
+public class PassValidator extends Constraints.Validator<String> implements ConstraintValidator<Password, String> {
 
     @Override
     public F.Tuple<String, Object[]> getErrorMessageKey() {

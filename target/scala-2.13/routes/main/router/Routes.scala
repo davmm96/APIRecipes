@@ -38,6 +38,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """usuarios""", """controllers.UserController.getAllUsers(request:Request)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """usuario/""" + "$" + """userId<[^/]+>""", """controllers.UserController.getUser(request:Request, userId:String)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """usuarios""", """controllers.UserController.createUser(request:Request)"""),
+    ("""PUT""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """usuario/""" + "$" + """userId<[^/]+>""", """controllers.UserController.updateUser(request:Request, userId:String)"""),
+    ("""DELETE""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """usuario/""" + "$" + """userId<[^/]+>""", """controllers.UserController.deleteUser(request:Request, userId:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -105,6 +107,46 @@ class Routes(
     )
   )
 
+  // @LINE:9
+  private[this] lazy val controllers_UserController_updateUser3_route = Route("PUT",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("usuario/"), DynamicPart("userId", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_UserController_updateUser3_invoker = createInvoker(
+    
+    (req:play.mvc.Http.Request) =>
+      UserController_0.updateUser(fakeValue[play.mvc.Http.Request], fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UserController",
+      "updateUser",
+      Seq(classOf[play.mvc.Http.Request], classOf[String]),
+      "PUT",
+      this.prefix + """usuario/""" + "$" + """userId<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:10
+  private[this] lazy val controllers_UserController_deleteUser4_route = Route("DELETE",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("usuario/"), DynamicPart("userId", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_UserController_deleteUser4_invoker = createInvoker(
+    
+    (req:play.mvc.Http.Request) =>
+      UserController_0.deleteUser(fakeValue[play.mvc.Http.Request], fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UserController",
+      "deleteUser",
+      Seq(classOf[play.mvc.Http.Request], classOf[String]),
+      "DELETE",
+      this.prefix + """usuario/""" + "$" + """userId<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -127,6 +169,20 @@ class Routes(
       call { 
         controllers_UserController_createUser2_invoker.call(
           req => UserController_0.createUser(req))
+      }
+  
+    // @LINE:9
+    case controllers_UserController_updateUser3_route(params@_) =>
+      call(params.fromPath[String]("userId", None)) { (userId) =>
+        controllers_UserController_updateUser3_invoker.call(
+          req => UserController_0.updateUser(req, userId))
+      }
+  
+    // @LINE:10
+    case controllers_UserController_deleteUser4_route(params@_) =>
+      call(params.fromPath[String]("userId", None)) { (userId) =>
+        controllers_UserController_deleteUser4_invoker.call(
+          req => UserController_0.deleteUser(req, userId))
       }
   }
 }
