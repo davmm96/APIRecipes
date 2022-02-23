@@ -1,6 +1,4 @@
 @(user: User)
-
-<?xml version="1.0" encoding="UTF-8"?>
 <user>
     <id>@user.getId()</id>
     <version>@user.getVersion()</version>

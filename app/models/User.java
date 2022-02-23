@@ -7,6 +7,8 @@ import io.ebean.annotation.Min;
 import io.ebean.annotation.WhenCreated;
 import io.ebean.annotation.WhenModified;
 import play.data.validation.Constraints;
+import validators.I_PassValidator;
+import validators.PassValidator;
 
 import javax.persistence.*;
 import javax.validation.Constraint;
@@ -17,9 +19,9 @@ import java.util.List;
 @Entity
 public class User extends Model
 {
-
     private static final Finder<Long,User> finder = new Finder<>(User.class);
 
+    //Attributes
     @Id
     private Long id;
 
@@ -35,17 +37,10 @@ public class User extends Model
     @Constraints.Required
     private String nick;
 
-    @Constraints.Min(value = 18, message = "error-menor-de-edad")
-    private Integer edad;
+    @I_PassValidator
+    private String pass;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private UserBio bio;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "parentUser")
-    @JsonManagedReference
-    private List<UserAddress> address = new ArrayList<>();
-
+    //Getters and setters
     public String getNick() {
         return nick;
     }
@@ -54,32 +49,12 @@ public class User extends Model
         this.nick = nick;
     }
 
-    public Integer getEdad() {
-        return edad;
+    public String getPass() {
+        return pass;
     }
 
-    public void setEdad(Integer edad) {
-        this.edad = edad;
-    }
-
-    @Override
-    public boolean equals(Object obj)
-    {
-        if(obj instanceof User && obj != null)
-        {
-            User objUser = (User) obj;
-
-            if(objUser.getNick() == null)
-            {
-                return false;
-            }
-
-            return objUser.getNick().equals(this.getNick());
-        }
-        else
-        {
-            return false;
-        }
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     public Long getVersion() {
@@ -114,38 +89,34 @@ public class User extends Model
         this.id = id;
     }
 
+    //Custom methods
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(obj instanceof User && obj != null)
+        {
+            User objUser = (User) obj;
+
+            if(objUser.getNick() == null)
+            {
+                return false;
+            }
+
+            return objUser.getNick().equals(this.getNick());
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     public static User findUserById(Long id)
     {
         return finder.byId(id);
     }
 
-    public static List<User> findByName(String name)
+    public static List<User> findAllUsers(Integer offset)
     {
-        return finder.query().where().eq("name", name).findList();
-    }
-
-
-    public UserBio getBio() {
-        return bio;
-    }
-
-    public void setBio(UserBio bio) {
-        bio.setParentUser(this);
-        this.bio = bio;
-    }
-
-    public List<UserAddress> getAddress() {
-        return address;
-    }
-
-    public void setAddress(List<UserAddress> address) {
-        this.address = address;
-    }
-
-    public void addAddress(UserAddress address)
-    {
-        this.address.add(address);
-        address.setParentUser(this);
+        return finder.query().where().setMaxRows(5).setFirstRow(offset).findList();
     }
 }

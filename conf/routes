@@ -3,11 +3,11 @@
 # ~~~~
 
 #USUARIOS
-GET      /usuarios                             controllers.UserController.getAllUsers(request: Request)
-GET      /usuario/:userName                     controllers.UserController.getUser(request: Request, userName: String)
-POST     /usuarios                             controllers.UserController.createUser(request: Request)
-#PUT      /usuario/:userId                      controllers.UserController.updateUser(userId)
-#DELETE   /usuario/:userId                      controllers.UserController.deleteUser(userId)
+GET      /usuarios                              controllers.UserController.getAllUsers(request: Request)
+GET      /usuario/:userId                       controllers.UserController.getUser(request: Request, userId: String)
+POST     /usuarios                              controllers.UserController.createUser(request: Request)
+#PUT      /usuario/:userId                       controllers.UserController.updateUser(request: Request, userId: String)
+#DELETE   /usuario/:userId                       controllers.UserController.deleteUser(request: Request, userId: String)
 
 #RECETAS
 #GET      /recetas                              controllers.RecipeController.getAllRecipes(request: Request)

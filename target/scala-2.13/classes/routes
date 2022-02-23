@@ -2,14 +2,14 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# An example controller showing a sample home page
-GET     /usuarios                  controllers.UserController.getAllUsers()
-GET     /usuario/:userId           controllers.UserController.getUser(request: Request, userId)
-POST    /usuarios                  controllers.UserController.createUser(request: Request)
-PUT     /usuario/:userNick         controllers.UserController.updateUser(request: Request,userNick)
-DELETE  /usuario/:userNick         controllers.UserController.deleteUser(userNick)
+#USUARIOS
+GET      /usuarios                              controllers.UserController.getAllUsers(request: Request)
+GET      /usuario/:userId                       controllers.UserController.getUser(request: Request, userId: String)
+POST     /usuarios                              controllers.UserController.createUser(request: Request)
+#PUT      /usuario/:userId                       controllers.UserController.updateUser(request: Request, userId: String)
+#DELETE   /usuario/:userId                       controllers.UserController.deleteUser(request: Request, userId: String)
 
-
-
-# Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+#RECETAS
+#GET      /recetas                              controllers.RecipeController.getAllRecipes(request: Request)
+#GET      /receta/:recipeId                     controllers.RecipeController.getOneRecipe(recipeId: Long)
+#POST     /recetas                              controllers.RecipeController.createRecipe(request: Request)

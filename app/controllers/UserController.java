@@ -4,8 +4,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.User;
-import models.UserAddress;
-import models.UserBio;
 import play.data.Form;
 import play.data.FormFactory;
 import play.libs.Json;
@@ -14,6 +12,7 @@ import play.twirl.api.Content;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class UserController extends Controller
@@ -23,26 +22,40 @@ public class UserController extends Controller
     @Inject
     FormFactory formFactory;
 
-    public Result getAllUsers()
+    public Result getAllUsers(Http.Request request)
     {
-        ArrayNode array_users;
+        Optional<String> opOffset = request.queryString("offset");
+        String offset = opOffset.orElse("0");
 
-        if(!users.isEmpty())
+        List<User> array_users = User.findAllUsers(Integer.valueOf(offset));;
+
+        if(!array_users.isEmpty())
         {
-            array_users = getAll();
-            return ok(array_users)
-                    .withHeader("X-User-Count", String.valueOf(users.size()));
+            if (request.accepts("application/xml"))
+            {
+                Content content = views.xml.users.render(array_users);
+                return Results.ok(content);
+            }
+            else if (request.accepts("application/json"))
+            {
+                return ok(Json.toJson(array_users));
+            }
+            else {
+                ObjectNode result = Json.newObject();
+                result.put("error","Unsupported format");
+                return Results.status(406,result);
+            }
         }
         else
         {
-            return Results.notFound()
-                            .withHeader("X-User-Count", String.valueOf(users.size()));
+            return Results.notFound();
         }
     }
 
-    public Result getUser(Http.Request request, String userid)
+
+    public Result getUser(Http.Request request, String userId)
     {
-        User userFound = User.findUserById(Long.valueOf(userid));
+        User userFound = User.findUserById(Long.valueOf(userId));
 
         if(userFound == null)
         {
@@ -76,19 +89,6 @@ public class UserController extends Controller
 
         User user = userForm.get();
 
-        UserBio bio = new UserBio();
-        bio.setTexto("19 años, Alicante");
-
-        user.setBio(bio);
-
-        UserAddress address1 = new UserAddress();
-        address1.setStreet("Montepinar");
-        user.addAddress(address1);
-
-        UserAddress address2 = new UserAddress();
-        address2.setStreet("Desengaño 21");
-        user.addAddress(address2);
-
 
         if(users.contains(user))
         {
@@ -97,8 +97,20 @@ public class UserController extends Controller
 
         user.save();
 
-        return ok(Json.toJson(user))
-                        .withHeader("X-User-Count", String.valueOf(users.size()));
+        if (request.accepts("application/xml"))
+        {
+            Content content = views.xml.user.render(user);
+            return Results.ok(content);
+        }
+        else if (request.accepts("application/json"))
+        {
+            return ok(Json.toJson(user));
+        }
+        else {
+            ObjectNode result = Json.newObject();
+            result.put("error","Unsupported format");
+            return Results.status(406,result);
+        }
     }
 
     public Result updateUser(Http.Request request, String userNick)
@@ -118,11 +130,7 @@ public class UserController extends Controller
         Optional<String> opNick = request.queryString("nick");
         String nuevo_nick = opNick.orElse(userFound.getNick());
 
-        Optional<String> opEdad = request.queryString("edad");
-        String nueva_edad = opEdad.orElse(String.valueOf(userFound.getEdad()));
-
         userFound.setNick(nuevo_nick);
-        userFound.setEdad(Integer.valueOf(nueva_edad));
 
          return ok(Json.toJson(user))
                         .withHeader("X-User-Count", String.valueOf(users.size()));
@@ -145,18 +153,5 @@ public class UserController extends Controller
 
         return ok("Usuario borrado correctamente")
                     .withHeader("X-User-Count", String.valueOf(users.size()));
-    }
-
-    public ArrayNode getAll()
-    {
-        ArrayNode array_users = Json.newArray();
-
-        for (int i = 0; i < users.size(); i++)
-        {
-            JsonNode node = Json.toJson(users.get(i));
-            array_users.add(node);
-        }
-
-        return array_users;
     }
 }

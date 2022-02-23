@@ -33,9 +33,13 @@ Seq[Any](format.raw/*1.14*/("""
 
 """),format.raw/*3.1*/("""<?xml version="1.0" encoding="UTF-8"?>
 <user>
-    <name>"""),_display_(/*5.12*/user/*5.16*/.getNick),format.raw/*5.24*/("""</name>
-    """),_display_(/*6.6*/_mi_parcial(user.getEdad)),format.raw/*6.31*/("""
-"""),format.raw/*7.1*/("""</user>"""))
+    <id>"""),_display_(/*5.10*/user/*5.14*/.getId()),format.raw/*5.22*/("""</id>
+    <version>"""),_display_(/*6.15*/user/*6.19*/.getVersion()),format.raw/*6.32*/("""</version>
+    <whenCreated>"""),_display_(/*7.19*/user/*7.23*/.getWhenCreated()),format.raw/*7.40*/("""</whenCreated>
+    <whenModified>"""),_display_(/*8.20*/user/*8.24*/.getWhenModified()),format.raw/*8.42*/("""</whenModified>
+    <nick>"""),_display_(/*9.12*/user/*9.16*/.getNick()),format.raw/*9.26*/("""</nick>
+    <pass>"""),_display_(/*10.12*/user/*10.16*/.getPass()),format.raw/*10.26*/("""</pass>
+</user>"""))
       }
     }
   }
@@ -52,9 +56,9 @@ Seq[Any](format.raw/*1.14*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/user.scala.xml
-                  HASH: e207adae6a44dd9ea8a06491d0f7f483df28dcbf
-                  MATRIX: 898->1|1004->13|1034->17|1119->76|1131->80|1159->88|1198->102|1243->127|1271->129
-                  LINES: 27->1|32->1|34->3|36->5|36->5|36->5|37->6|37->6|38->7
+                  HASH: 5733ec495af108368fe97ae1e21df65bd86214eb
+                  MATRIX: 898->1|1004->13|1034->17|1117->74|1129->78|1157->86|1204->107|1216->111|1249->124|1305->154|1317->158|1354->175|1415->210|1427->214|1465->232|1519->260|1531->264|1561->274|1608->294|1621->298|1652->308
+                  LINES: 27->1|32->1|34->3|36->5|36->5|36->5|37->6|37->6|37->6|38->7|38->7|38->7|39->8|39->8|39->8|40->9|40->9|40->9|41->10|41->10|41->10
                   -- GENERATED --
               */
           
