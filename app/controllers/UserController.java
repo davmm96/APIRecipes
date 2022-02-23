@@ -164,13 +164,13 @@ public class UserController extends Controller
 
         if (request.accepts("application/xml"))
         {
-            Content content = views.xml.message.render("User deleted");
+            Content content = views.xml.message.render("message-user-deleted");
             return Results.ok(content);
         }
         else if (request.accepts("application/json"))
         {
             ObjectNode result = Json.newObject();
-            result.put("message","User deleted");
+            result.put("message","message-user-deleted");
             return ok(result);
         }
         else {

@@ -8,6 +8,7 @@ import play.data.validation.Constraints;
 import validators.Password;
 
 import javax.persistence.*;
+import javax.validation.Constraint;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -29,10 +30,11 @@ public class User extends Model
     @WhenModified
     private Timestamp whenModified;
 
-    @Constraints.Required
+    @Constraints.Required(message = "error-nick")
+    @Constraints.MinLength(value=4,message = "error-nick_extension")
     private String nick;
 
-    @Password
+    @Password(message = "error-pass")
     private String pass;
 
     //Getters and setters
