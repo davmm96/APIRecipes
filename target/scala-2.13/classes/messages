@@ -1,3 +1,5 @@
 error-nick=El nick es obligatorio
 error-nick_extension=El nick debe tener mas de 4 caracteres
-error-pass="La contraseña debe tener al menos 8 caracteres, una mayuscula y un numero"
+error-pass=La contraseña debe tener al menos 8 caracteres, una mayuscula y un numero
+
+message_user_deleted=Usuario borrado correctamente

@@ -1,9 +1,6 @@
 @(user: User)
 <user>
     <id>@user.getId()</id>
-    <version>@user.getVersion()</version>
-    <whenCreated>@user.getWhenCreated()</whenCreated>
-    <whenModified>@user.getWhenModified()</whenModified>
     <nick>@user.getNick()</nick>
     <pass>@user.getPass()</pass>
 </user>

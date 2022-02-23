@@ -21,15 +21,6 @@ public class User extends Model
     @Id
     private Long id;
 
-    @Version
-    private Long version;
-
-    @WhenCreated
-    private Timestamp whenCreated;
-
-    @WhenModified
-    private Timestamp whenModified;
-
     @Constraints.Required(message = "error-nick")
     @Constraints.MinLength(value=4,message = "error-nick_extension")
     private String nick;
@@ -52,30 +43,6 @@ public class User extends Model
 
     public void setPass(String pass) {
         this.pass = pass;
-    }
-
-    public Long getVersion() {
-        return version;
-    }
-
-    public void setVersion(Long version) {
-        this.version = version;
-    }
-
-    public Timestamp getWhenCreated() {
-        return whenCreated;
-    }
-
-    public void setWhenCreated(Timestamp whenCreated) {
-        this.whenCreated = whenCreated;
-    }
-
-    public Timestamp getWhenModified() {
-        return whenModified;
-    }
-
-    public void setWhenModified(Timestamp whenModified) {
-        this.whenModified = whenModified;
     }
 
     public Long getId() {

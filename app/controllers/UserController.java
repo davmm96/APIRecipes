@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.User;
 import play.data.Form;
 import play.data.FormFactory;
+import play.i18n.Messages;
+import play.i18n.MessagesApi;
 import play.libs.Json;
 import play.mvc.*;
 import play.twirl.api.Content;
@@ -21,6 +23,9 @@ public class UserController extends Controller
 
     @Inject
     FormFactory formFactory;
+
+    @Inject
+    MessagesApi messagesApi;
 
     public Result getAllUsers(Http.Request request)
     {
@@ -162,15 +167,18 @@ public class UserController extends Controller
 
         userFound.delete();
 
+        Messages messages = messagesApi.preferred(request);
+        String texto = messages.at("message_user_deleted");
+
         if (request.accepts("application/xml"))
         {
-            Content content = views.xml.message.render("message-user-deleted");
+            Content content = views.xml.message.render(texto);
             return Results.ok(content);
         }
         else if (request.accepts("application/json"))
         {
             ObjectNode result = Json.newObject();
-            result.put("message","message-user-deleted");
+            result.put("message",texto);
             return ok(result);
         }
         else {

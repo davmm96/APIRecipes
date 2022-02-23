@@ -1,3 +1,5 @@
 error-nick=Nick field is required
 error-nick_extension=Nick field must be longer than 4 characters
 error-pass=Password must contains 8 characters and at least one number valid and one capital letter
+
+message_user_deleted=User deleted

@@ -38,7 +38,7 @@ package controllers {
     // @LINE:9
     def updateUser(userId:String): Call = {
       
-      Call("PUT", _prefix + { _defaultPrefix } + "usuario/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("userId", userId)))
+      Call("PATCH", _prefix + { _defaultPrefix } + "usuario/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("userId", userId)))
     }
   
     // @LINE:6
