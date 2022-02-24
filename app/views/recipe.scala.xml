@@ -1,0 +1,9 @@
+@(recipe: Recipe)
+<?xml version="1.0" encoding="UTF-8"?>
+<recipe>
+    <id>@recipe.getId()</id>
+    <name>@recipe.getName()</name>
+    <minutes>@recipe.getMinutes()</minutes>
+    <serves>@recipe.getServes()</serves>
+    <parentUser>@recipe.getParentUserId()</parentUser>
+</recipe>

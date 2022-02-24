@@ -1,5 +1,6 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
@@ -19,14 +20,19 @@ public class Recipe extends Model
     @Id
     private Long id;
 
-
+    @Constraints.Required(message = "error_required")
+    @Constraints.MinLength(value=2,message = "error_extension")
     private String name;
 
+    @Constraints.Min(value=1,message = "error_number_min")
     private Integer minutes;
 
+    @Constraints.Min(value=1,message = "error_number_min")
+    @Constraints.Max(value=10,message = "error_number_max")
     private Integer serves;
 
     @ManyToOne
+    @JsonBackReference
     private User parentUser;
 
 
@@ -91,6 +97,11 @@ public class Recipe extends Model
 
     public User getParentUser() {
         return parentUser;
+    }
+
+    public Long getParentUserId()
+    {
+        return parentUser.getId();
     }
 
     public void setParentUser(User parentUser) {

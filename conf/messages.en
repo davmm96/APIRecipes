@@ -1,7 +1,8 @@
-error_nick=Nick field is required
-error_nick_extension=Nick field must be longer than 4 characters
+error_required=This field is required
+error_extension=This field must be longer than 2 characters
 error_pass=Password must contains 8 characters and at least one number valid and one capital letter
-error_pass_required=Pass field is required
+error_number_min=This field must be more than 0
+error_number_max=This field must be less than 10
 
 conflict_user_exists=The nick already exists, try another nick
 conflict_userid=You can't change the id field

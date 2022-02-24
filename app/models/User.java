@@ -1,11 +1,13 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
 import validators.Password;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,16 +19,17 @@ public class User extends Model
     @Id
     private Long id;
 
-    @Constraints.Required(message = "error_nick")
-    @Constraints.MinLength(value=2,message = "error_nick_extension")
+    @Constraints.Required(message = "error_required")
+    @Constraints.MinLength(value=2,message = "error_extension")
     private String nick;
 
-    @Constraints.Required(message = "error_pass_required")
+    @Constraints.Required(message = "error_required")
     @Password(message = "error_pass")
     private String pass;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "parentUser")
-    private List<Recipe> recipes;
+    @JsonManagedReference
+    private List<Recipe> recipes = new ArrayList<>();
 
     //Getters and setters
     public String getNick() {
@@ -94,5 +97,11 @@ public class User extends Model
 
     public void setRecipes(List<Recipe> recipes) {
         this.recipes = recipes;
+    }
+
+    public void addRecipe(Recipe recipe)
+    {
+        this.recipes.add(recipe);
+        recipe.setParentUser(this);
     }
 }

@@ -1,7 +1,9 @@
-error_nick=El nick es obligatorio
-error_nick_extension=El nick debe tener mas de 4 caracteres
+error_required=Este campo es obligatorio
+error_extension=Este campo debe tener mas de 2 caracteres
 error_pass=La contraseña debe tener al menos 8 caracteres, una mayuscula y un numero
-error_pass_required=La contraseña es obligatoria
+error_number_min=Este campo debe ser mayor que 0
+error_number_max=Este campo debe ser menor que 10
+
 
 conflict_user_exists=Este nick ya esta en uso, prueba otro
 conflict_userid=No puedes cambiar la id del usuario
