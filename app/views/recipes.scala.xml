@@ -1,0 +1,3 @@
+@(recipes: List[Recipe])
+<?xml version="1.0" encoding="UTF-8"?>
+<recipes>@for(recipe <- recipes) {@_recipe_partial(recipe)}</recipes>

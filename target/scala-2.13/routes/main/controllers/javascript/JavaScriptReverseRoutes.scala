@@ -18,12 +18,22 @@ package controllers.javascript {
     }
 
   
-    // @LINE:16
+    // @LINE:24
+    def createSteps: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecipeController.createSteps",
+      """
+        function(recipeId0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "recipe/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("recipeId", recipeId0)) + "/steps"})
+        }
+      """
+    )
+  
+    // @LINE:15
     def getOneRecipe: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecipeController.getOneRecipe",
       """
         function(recipeId0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "receta/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("recipeId", recipeId0))})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "recipe/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("recipeId", recipeId0))})
         }
       """
     )
@@ -33,7 +43,17 @@ package controllers.javascript {
       "controllers.RecipeController.getAllRecipes",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "recetas"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "recipes"})
+        }
+      """
+    )
+  
+    // @LINE:19
+    def patchRecipe: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecipeController.patchRecipe",
+      """
+        function(userId0,recipeId1) {
+          return _wA({method:"PATCH", url:"""" + _prefix + { _defaultPrefix } + """" + "user/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0)) + "/recipe/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("recipeId", recipeId1))})
         }
       """
     )
@@ -43,27 +63,67 @@ package controllers.javascript {
       "controllers.RecipeController.createRecipe",
       """
         function(userId0) {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "usuario/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0)) + "/recetas"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "user/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0)) + "/recipes"})
+        }
+      """
+    )
+  
+    // @LINE:20
+    def deleteRecipe: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecipeController.deleteRecipe",
+      """
+        function(userId0,recipeId1) {
+          return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "user/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0)) + "/recipe/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("recipeId", recipeId1))})
+        }
+      """
+    )
+  
+    // @LINE:25
+    def updateSteps: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecipeController.updateSteps",
+      """
+        function(recipeId0,stepsId1) {
+          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "recipe/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("recipeId", recipeId0)) + "/steps/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("stepsId", stepsId1))})
         }
       """
     )
   
     // @LINE:18
-    def deleteRecipe: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.RecipeController.deleteRecipe",
+    def updateRecipe: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecipeController.updateRecipe",
       """
-        function(recipeId0) {
-          return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "receta/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("recipeId", recipeId0))})
+        function(userId0,recipeId1) {
+          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "user/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0)) + "/recipe/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("recipeId", recipeId1))})
         }
       """
     )
   
-    // @LINE:15
+    // @LINE:23
+    def getSteps: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecipeController.getSteps",
+      """
+        function(recipeId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "recipe/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("recipeId", recipeId0)) + "/steps"})
+        }
+      """
+    )
+  
+    // @LINE:16
     def getUserRecipes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecipeController.getUserRecipes",
       """
         function(userId0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "usuario/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0)) + "/recetas"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "user/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0)) + "/recipes"})
+        }
+      """
+    )
+  
+    // @LINE:26
+    def deleteSteps: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecipeController.deleteSteps",
+      """
+        function(recipeId0,stepsId1) {
+          return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "recipe/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("recipeId", recipeId0)) + "/steps/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("stepsId", stepsId1))})
         }
       """
     )
@@ -83,7 +143,7 @@ package controllers.javascript {
       "controllers.UserController.deleteUser",
       """
         function(userId0) {
-          return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "usuario/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0))})
+          return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "user/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0))})
         }
       """
     )
@@ -93,7 +153,7 @@ package controllers.javascript {
       "controllers.UserController.getUser",
       """
         function(userId0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "usuario/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0))})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "user/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0))})
         }
       """
     )
@@ -103,7 +163,7 @@ package controllers.javascript {
       "controllers.UserController.createUser",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "usuarios"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "users"})
         }
       """
     )
@@ -113,7 +173,7 @@ package controllers.javascript {
       "controllers.UserController.updateUserNick",
       """
         function(userId0) {
-          return _wA({method:"PATCH", url:"""" + _prefix + { _defaultPrefix } + """" + "usuario/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0))})
+          return _wA({method:"PATCH", url:"""" + _prefix + { _defaultPrefix } + """" + "user/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0))})
         }
       """
     )
@@ -123,7 +183,7 @@ package controllers.javascript {
       "controllers.UserController.updateUser",
       """
         function(userId0) {
-          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "usuario/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0))})
+          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "user/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", userId0))})
         }
       """
     )
@@ -133,7 +193,7 @@ package controllers.javascript {
       "controllers.UserController.getAllUsers",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "usuarios"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users"})
         }
       """
     )

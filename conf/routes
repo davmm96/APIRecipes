@@ -2,17 +2,26 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-#USUARIOS
-GET      /usuarios                              controllers.UserController.getAllUsers(request: Request)
-GET      /usuario/:userId                       controllers.UserController.getUser(request: Request, userId: String)
-POST     /usuarios                              controllers.UserController.createUser(request: Request)
-PUT      /usuario/:userId                       controllers.UserController.updateUser(request: Request, userId: String)
-PATCH    /usuario/:userId                       controllers.UserController.updateUserNick(request: Request, userId: String)
-DELETE   /usuario/:userId                       controllers.UserController.deleteUser(request: Request, userId: String)
+#USERS
+GET      /users                                       controllers.UserController.getAllUsers(request: Request)
+GET      /user/:userId                                controllers.UserController.getUser(request: Request, userId: String)
+POST     /users                                       controllers.UserController.createUser(request: Request)
+PUT      /user/:userId                                controllers.UserController.updateUser(request: Request, userId: String)
+PATCH    /user/:userId                                controllers.UserController.updateUserNick(request: Request, userId: String)
+DELETE   /user/:userId                                controllers.UserController.deleteUser(request: Request, userId: String)
 
-#RECETAS
-GET      /recetas                               controllers.RecipeController.getAllRecipes(request: Request)
-GET      /usuario/:userId/recetas               controllers.RecipeController.getUserRecipes(request: Request, userId: String)
-GET      /receta/:recipeId                      controllers.RecipeController.getOneRecipe(request: Request, recipeId: String)
-POST     /usuario/:userId/recetas               controllers.RecipeController.createRecipe(request: Request, userId: String)
-DELETE   /receta/:recipeId                      controllers.RecipeController.deleteRecipe(request: Request, recipeId: String)
+#RECIPES
+GET      /recipes                                     controllers.RecipeController.getAllRecipes(request: Request)
+GET      /recipe/:recipeId                            controllers.RecipeController.getOneRecipe(request: Request, recipeId: String)
+GET      /user/:userId/recipes                        controllers.RecipeController.getUserRecipes(request: Request, userId: String)
+POST     /user/:userId/recipes                        controllers.RecipeController.createRecipe(request: Request, userId: String)
+PUT      /user/:userId/recipe/:recipeId               controllers.RecipeController.updateRecipe(request: Request, userId: String, recipeId: String)
+PATCH    /user/:userId/recipe/:recipeId               controllers.RecipeController.patchRecipe(request: Request, userId: String, recipeId: String)
+DELETE   /user/:userId/recipe/:recipeId               controllers.RecipeController.deleteRecipe(request: Request, userId: String, recipeId: String)
+
+#STEPS
+GET      /recipe/:recipeId/steps                      controllers.RecipeController.getSteps(request: Request, recipeId: String)
+POST     /recipe/:recipeId/steps                      controllers.RecipeController.createSteps(request: Request, recipeId: String)
+PUT      /recipe/:recipeId/steps/:stepsId             controllers.RecipeController.updateSteps(request: Request, recipeId: String, stepsId: String)
+DELETE   /recipe/:recipeId/steps/:stepsId             controllers.RecipeController.deleteSteps(request: Request, recipeId: String, stepsId: String)
+

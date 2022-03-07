@@ -1,0 +1,4 @@
+@(steps: Steps)
+<id>@steps.getId()</id>
+<steps>@steps.getSteps()</steps>
+<parentRecipe>@steps.getParentRecipeId()</parentRecipe>

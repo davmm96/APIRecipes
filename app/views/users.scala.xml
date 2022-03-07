@@ -1,8 +1,3 @@
 @(users: List[User])
-
 <?xml version="1.0" encoding="UTF-8"?>
-<users>
-    @for(user <- users) {
-        @_user_partial(user)
-    }
-</users>
+<users>@for(user <- users) {@_user_partial(user)}</users>

@@ -104,4 +104,14 @@ public class User extends Model
         this.recipes.add(recipe);
         recipe.setParentUser(this);
     }
+
+    public void updateRecipe(Recipe recipe, Recipe recipeAux)
+    {
+        this.recipes.set(this.recipes.indexOf(recipeAux), recipe);
+    }
+
+    public void removeRecipe(Recipe recipe)
+    {
+        this.recipes.remove(recipe);
+    }
 }

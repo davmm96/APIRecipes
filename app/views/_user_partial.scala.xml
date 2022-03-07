@@ -3,4 +3,5 @@
     <id>@user.getId()</id>
     <nick>@user.getNick()</nick>
     <pass>@user.getPass()</pass>
+    <recipes>@for(recipe <- user.getRecipes()) {@_recipe_partial(recipe)}</recipes>
 </user>

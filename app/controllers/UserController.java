@@ -188,13 +188,6 @@ public class UserController extends Controller
             return Results.notFound();
         }
 
-        if(!user.getId().equals(Long.valueOf(userId)))
-        {
-            ObjectNode result = Json.newObject();
-            result.put("conflict",messages.at("conflict_userid"));
-            return Results.status(409, result);
-        }
-
         if(User.nickExists(user.getNick()) && !userFound.getNick().equals(user.getNick()))
         {
             ObjectNode result = Json.newObject();
@@ -253,4 +246,5 @@ public class UserController extends Controller
             return Results.status(406,result);
         }
     }
+
 }

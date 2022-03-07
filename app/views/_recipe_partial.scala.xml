@@ -4,5 +4,6 @@
     <name>@recipe.getName()</name>
     <minutes>@recipe.getMinutes()</minutes>
     <serves>@recipe.getServes()</serves>
+    <steps>@if(recipe.getSteps() != null){@_steps_partial(recipe.getSteps())}</steps>
     <parentUser>@recipe.getParentUserId()</parentUser>
 </recipe>

@@ -5,7 +5,10 @@ error_number_min=This field must be more than 0
 error_number_max=This field must be less than 10
 
 conflict_user_exists=The nick already exists, try another nick
-conflict_userid=You can't change the id field
+conflict_has_steps=The recipe already has steps, try to edit it
+conflict_id=You can't change the id field
 conflict_format=This format is not allowed, just json or xml
 
 message_user_deleted=User deleted
+message_recipe_deleted=Recipe deleted
+message_steps_deleted=Steps deleted
