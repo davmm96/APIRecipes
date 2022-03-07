@@ -25,3 +25,9 @@ POST     /recipe/:recipeId/steps                      controllers.RecipeControll
 PUT      /recipe/:recipeId/steps/:stepsId             controllers.RecipeController.updateSteps(request: Request, recipeId: String, stepsId: String)
 DELETE   /recipe/:recipeId/steps/:stepsId             controllers.RecipeController.deleteSteps(request: Request, recipeId: String, stepsId: String)
 
+#TYPES
+GET      /types                                       controllers.TypesController.getAllTypes(request: Request)
+GET      /type/:typeId                                controllers.TypesController.getType(request: Request, typeId: String)
+POST     /types                                       controllers.TypesController.createType(request: Request)
+PUT      /type/:typeId                                controllers.TypesController.updateType(request: Request, typeId: String)
+DELETE   /type/:typeId                                controllers.TypesController.deleteType(request: Request, typeId: String)

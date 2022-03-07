@@ -1,0 +1,5 @@
+@(typeElement: Types)
+<type>
+    <id>@typeElement.getId()</id>
+    <name>@typeElement.getName()</name>
+</type>

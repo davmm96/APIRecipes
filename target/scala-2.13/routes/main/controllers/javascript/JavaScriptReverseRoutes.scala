@@ -10,6 +10,66 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers.javascript {
 
+  // @LINE:29
+  class ReverseTypesController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:33
+    def deleteType: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.TypesController.deleteType",
+      """
+        function(typeId0) {
+          return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "type/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("typeId", typeId0))})
+        }
+      """
+    )
+  
+    // @LINE:29
+    def getAllTypes: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.TypesController.getAllTypes",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "types"})
+        }
+      """
+    )
+  
+    // @LINE:30
+    def getType: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.TypesController.getType",
+      """
+        function(typeId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "type/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("typeId", typeId0))})
+        }
+      """
+    )
+  
+    // @LINE:31
+    def createType: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.TypesController.createType",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "types"})
+        }
+      """
+    )
+  
+    // @LINE:32
+    def updateType: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.TypesController.updateType",
+      """
+        function(typeId0) {
+          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "type/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("typeId", typeId0))})
+        }
+      """
+    )
+  
+  }
+
   // @LINE:14
   class ReverseRecipeController(_prefix: => String) {
 

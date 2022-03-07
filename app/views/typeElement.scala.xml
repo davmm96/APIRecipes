@@ -1,0 +1,6 @@
+@(typeElement: Types)
+<?xml version="1.0" encoding="UTF-8"?>
+<type>
+    <id>@typeElement.getId()</id>
+    <name>@typeElement.getName()</name>
+</type>

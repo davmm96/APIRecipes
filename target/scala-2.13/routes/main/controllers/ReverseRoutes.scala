@@ -10,6 +10,45 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers {
 
+  // @LINE:29
+  class ReverseTypesController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:33
+    def deleteType(typeId:String): Call = {
+      
+      Call("DELETE", _prefix + { _defaultPrefix } + "type/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("typeId", typeId)))
+    }
+  
+    // @LINE:29
+    def getAllTypes(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "types")
+    }
+  
+    // @LINE:30
+    def getType(typeId:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "type/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("typeId", typeId)))
+    }
+  
+    // @LINE:31
+    def createType(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "types")
+    }
+  
+    // @LINE:32
+    def updateType(typeId:String): Call = {
+      
+      Call("PUT", _prefix + { _defaultPrefix } + "type/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("typeId", typeId)))
+    }
+  
+  }
+
   // @LINE:14
   class ReverseRecipeController(_prefix: => String) {
     def _defaultPrefix: String = {
