@@ -1,6 +1,6 @@
-@(typeElement: Types)
+@(typeElement: RecipeType)
 <?xml version="1.0" encoding="UTF-8"?>
 <type>
     <id>@typeElement.getId()</id>
-    <name>@typeElement.getName()</name>
+    <typename>@typeElement.getTypeName()</typename>
 </type>

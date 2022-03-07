@@ -1,5 +1,5 @@
-@(typeElement: Types)
+@(typeElement: RecipeType)
 <type>
     <id>@typeElement.getId()</id>
-    <name>@typeElement.getName()</name>
+    <typename>@typeElement.getTypeName()</typename>
 </type>

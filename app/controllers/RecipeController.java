@@ -296,6 +296,9 @@ public class RecipeController extends Controller {
         }
     }
 
+
+    //Steps
+
     public Result getSteps(Http.Request request, String recipeId)
     {
         Recipe recipeFound = Recipe.findRecipeById(Long.valueOf(recipeId));

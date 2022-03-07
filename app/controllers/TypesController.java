@@ -1,9 +1,7 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import models.Types;
-import models.User;
-import models.User_patch;
+import models.RecipeType;
 import play.data.Form;
 import play.data.FormFactory;
 import play.i18n.Messages;
@@ -16,9 +14,7 @@ import play.mvc.Results;
 import play.twirl.api.Content;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class TypesController extends Controller
 {
@@ -30,7 +26,7 @@ public class TypesController extends Controller
 
     public Result getAllTypes(Http.Request request)
     {
-        List<Types> array_types = Types.findAllTypes();
+        List<RecipeType> array_types = RecipeType.findAllTypes();
 
         if(!array_types.isEmpty())
         {
@@ -60,7 +56,7 @@ public class TypesController extends Controller
 
     public Result getType(Http.Request request, String typeId)
     {
-        Types typeFound = Types.findTypeById(Long.valueOf(typeId));
+        RecipeType typeFound = RecipeType.findTypeById(Long.valueOf(typeId));
 
         if(typeFound == null)
         {
@@ -88,15 +84,15 @@ public class TypesController extends Controller
 
     public Result createType(Http.Request request)
     {
-        Form<Types> typeForm = formFactory.form(Types.class).bindFromRequest(request);
+        Form<RecipeType> typeForm = formFactory.form(RecipeType.class).bindFromRequest(request);
 
         if(typeForm.hasErrors())
         {
             return Results.notAcceptable(typeForm.errorsAsJson());
         }
 
-        Types type = typeForm.get();
-        Types typeFound = Types.findTypeByName(type.getName());
+        RecipeType type = typeForm.get();
+        RecipeType typeFound = RecipeType.findTypeByName(type.getTypeName());
 
         Messages messages = messagesApi.preferred(request);
 
@@ -127,7 +123,7 @@ public class TypesController extends Controller
 
     public Result updateType(Http.Request request, String typeId)
     {
-        Form<Types> typeForm = formFactory.form(Types.class).bindFromRequest(request);
+        Form<RecipeType> typeForm = formFactory.form(RecipeType.class).bindFromRequest(request).withDirectFieldAccess(true);
         Messages messages = messagesApi.preferred(request);
 
         if(typeForm.hasErrors())
@@ -135,22 +131,22 @@ public class TypesController extends Controller
             return Results.notAcceptable(typeForm.errorsAsJson());
         }
 
-        Types type = typeForm.get();
-        Types typeFound = Types.findTypeById(Long.valueOf(typeId));
+        RecipeType type = typeForm.get();
+        RecipeType typeFound = RecipeType.findTypeById(Long.valueOf(typeId));
 
         if(typeFound == null)
         {
             return Results.notFound();
         }
 
-        if(Types.typeExists(type.getName()))
+        if(RecipeType.typeExists(type.getTypeName()))
         {
             ObjectNode result = Json.newObject();
             result.put("conflict",messages.at("conflict_type_exists"));
             return Results.status(409, result);
         }
 
-        typeFound.setName(type.getName());
+        typeFound.setTypeName(type.getTypeName());
         typeFound.update();
 
         if (request.accepts("application/xml"))
@@ -171,7 +167,7 @@ public class TypesController extends Controller
 
     public Result deleteType(Http.Request request, String typeId)
     {
-        Types typeFound = Types.findTypeById(Long.valueOf(typeId));
+        RecipeType typeFound = RecipeType.findTypeById(Long.valueOf(typeId));
 
         if(typeFound == null)
         {
