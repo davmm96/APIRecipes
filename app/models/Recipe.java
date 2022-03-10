@@ -8,6 +8,7 @@ import play.data.validation.Constraints;
 import validators.Password;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -39,6 +40,14 @@ public class Recipe extends Model
     @OneToOne(cascade = CascadeType.ALL)
     @JsonManagedReference
     private Steps steps;
+
+    @ManyToOne
+    @JsonManagedReference
+    private RecipeType type;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Ingredient> ingredients = new ArrayList<>();
 
 
     //Getters and setters
@@ -126,5 +135,42 @@ public class Recipe extends Model
     public void removeSteps()
     {
         this.steps = null;
+    }
+
+    public RecipeType getType() {
+        return type;
+    }
+
+    public void setType(RecipeType type) {
+        this.type = type;
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public boolean hasIngredient (Ingredient ingredient)
+    {
+        return this.ingredients.contains(ingredient);
+    }
+
+    public void removeIngredient(Ingredient ingredient)
+    {
+        ingredient.deleteRecipe(this);
+        this.ingredients.remove(ingredient);
+    }
+
+    public void removeIngredients()
+    {
+        for(Ingredient ingredient: this.ingredients)
+        {
+            ingredient.deleteRecipe(this);
+        }
+
+        this.ingredients = new ArrayList<>();;
     }
 }

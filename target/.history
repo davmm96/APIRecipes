@@ -63,3 +63,7 @@ h2-browser
 exit
 h2-browser
 exit
+h2-browser
+reload
+compile
+exit

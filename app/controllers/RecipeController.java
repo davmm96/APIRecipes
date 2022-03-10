@@ -142,8 +142,24 @@ public class RecipeController extends Controller {
         if(recipe.getSteps() != null) {
             Steps steps = new Steps();
             steps.setSteps(recipe.getSteps().getSteps());
+            steps.setParentRecipe(recipe_new);
+        }
 
-            recipe_new.setSteps(steps);
+        if(recipe.getType() != null) {
+
+            RecipeType typeFound = RecipeType.findTypeByName(recipe.getType().getTypeName());
+
+            if(typeFound == null) {
+                RecipeType type = new RecipeType();
+                type.setTypeName(recipe.getType().getTypeName());
+                type.addRecipe(recipe_new);
+                type.save();
+            }
+            else
+            {
+                typeFound.addRecipe(recipe_new);
+                typeFound.update();
+            }
         }
 
         userFound.addRecipe(recipe_new);
@@ -443,6 +459,107 @@ public class RecipeController extends Controller {
         {
             ObjectNode result = Json.newObject();
             result.put("message",messages.at("message_steps_deleted"));
+            return ok(result);
+        }
+        else {
+            ObjectNode result = Json.newObject();
+            result.put("error",messages.at("conflict_format"));
+            return Results.status(406,result);
+        }
+    }
+
+
+    //Ingredients
+    public Result getIngredients(Http.Request request, String recipeId)
+    {
+        Recipe recipeFound = Recipe.findRecipeById(Long.valueOf(recipeId));
+
+        if(recipeFound == null || recipeFound.getIngredients() == null)
+        {
+            return Results.notFound();
+        }
+
+        if (request.accepts("application/xml"))
+        {
+            Content content = views.xml.ingredients.render(recipeFound.getIngredients());
+            return Results.ok(content);
+        }
+        else if (request.accepts("application/json"))
+        {
+            return ok(Json.toJson(recipeFound.getIngredients()));
+        }
+        else
+        {
+            Messages messages = messagesApi.preferred(request);
+
+            ObjectNode result = Json.newObject();
+            result.put("error",messages.at("conflict_format"));
+            return Results.status(406,result);
+        }
+    }
+
+    public Result deleteIngredient(Http.Request request, String recipeId, String ingredientId)
+    {
+        Recipe recipeFound = Recipe.findRecipeById(Long.valueOf(recipeId));
+
+        if(recipeFound == null)
+        {
+            return Results.notFound();
+        }
+
+        Ingredient ingredientFound = Ingredient.findIngredientById(Long.valueOf(ingredientId));
+
+        if(ingredientFound == null || !recipeFound.hasIngredient(ingredientFound))
+        {
+            return Results.notFound();
+        }
+
+        recipeFound.removeIngredient(ingredientFound);
+        recipeFound.update();
+
+        Messages messages = messagesApi.preferred(request);
+
+        if (request.accepts("application/xml"))
+        {
+            Content content = views.xml.message.render(messages.at("message_ingredient_deleted"));
+            return Results.ok(content);
+        }
+        else if (request.accepts("application/json"))
+        {
+            ObjectNode result = Json.newObject();
+            result.put("message",messages.at("message_ingredient_deleted"));
+            return ok(result);
+        }
+        else {
+            ObjectNode result = Json.newObject();
+            result.put("error",messages.at("conflict_format"));
+            return Results.status(406,result);
+        }
+    }
+
+    public Result deleteIngredients(Http.Request request, String recipeId)
+    {
+        Recipe recipeFound = Recipe.findRecipeById(Long.valueOf(recipeId));
+
+        if(recipeFound == null || recipeFound.getIngredients() == null)
+        {
+            return Results.notFound();
+        }
+
+        recipeFound.removeIngredients();
+        recipeFound.update();
+
+        Messages messages = messagesApi.preferred(request);
+
+        if (request.accepts("application/xml"))
+        {
+            Content content = views.xml.message.render(messages.at("message_ingredients_deleted"));
+            return Results.ok(content);
+        }
+        else if (request.accepts("application/json"))
+        {
+            ObjectNode result = Json.newObject();
+            result.put("message",messages.at("message_ingredients_deleted"));
             return ok(result);
         }
         else {

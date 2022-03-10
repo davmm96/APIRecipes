@@ -123,7 +123,7 @@ public class TypesController extends Controller
 
     public Result updateType(Http.Request request, String typeId)
     {
-        Form<RecipeType> typeForm = formFactory.form(RecipeType.class).bindFromRequest(request).withDirectFieldAccess(true);
+        Form<RecipeType> typeForm = formFactory.form(RecipeType.class).bindFromRequest(request);
         Messages messages = messagesApi.preferred(request);
 
         if(typeForm.hasErrors())
@@ -151,7 +151,7 @@ public class TypesController extends Controller
 
         if (request.accepts("application/xml"))
         {
-            Content content = views.xml.typeElement.render(type);
+            Content content = views.xml.typeElement.render(typeFound);
             return Results.ok(content);
         }
         else if (request.accepts("application/json"))
