@@ -20,7 +20,7 @@ public class User extends Model
     private Long id;
 
     @Constraints.Required(message = "error_required")
-    @Constraints.MinLength(value=2,message = "error_extension")
+    @Constraints.MinLength(value=3,message = "error_extension")
     private String nick;
 
     @Constraints.Required(message = "error_required")

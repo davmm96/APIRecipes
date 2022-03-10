@@ -87,6 +87,7 @@ public class UserController extends Controller
     public Result createUser(Http.Request request)
     {
         Form<User> userForm = formFactory.form(User.class).bindFromRequest(request);
+        Messages messages = messagesApi.preferred(request);
 
         if(userForm.hasErrors())
         {
@@ -95,8 +96,6 @@ public class UserController extends Controller
 
         User user = userForm.get();
         User userFound = User.findUserByNick(user.getNick());
-
-        Messages messages = messagesApi.preferred(request);
 
         if(userFound != null)
         {
@@ -123,9 +122,9 @@ public class UserController extends Controller
         }
     }
 
-    public Result updateUserNick(Http.Request request, String userId)
+    public Result updateUser(Http.Request request, String userId)
     {
-        Form<User_patch> userForm = formFactory.form(User_patch.class).bindFromRequest(request);
+        Form<User> userForm = formFactory.form(User.class).bindFromRequest(request);
         Messages messages = messagesApi.preferred(request);
 
         if(userForm.hasErrors())
@@ -133,7 +132,6 @@ public class UserController extends Controller
             return Results.notAcceptable(userForm.errorsAsJson());
         }
 
-        User_patch user = userForm.get();
         User userFound = User.findUserById(Long.valueOf(userId));
 
         if(userFound == null)
@@ -141,16 +139,17 @@ public class UserController extends Controller
             return Results.notFound();
         }
 
-        if(User.nickExists(user.getNick()) && !userFound.getNick().equals(user.getNick()))
+        User user = userForm.get();
+
+        if(User.nickExists(user.getNick()))
         {
             ObjectNode result = Json.newObject();
             result.put("conflict",messages.at("conflict_user_exists"));
             return Results.status(409, result);
         }
 
-        if(user.getNick() != null) {
-            userFound.setNick(user.getNick());
-        }
+        userFound.setNick(user.getNick());
+        userFound.setPass(user.getPass());
 
         userFound.update();
 
@@ -170,9 +169,9 @@ public class UserController extends Controller
         }
     }
 
-    public Result updateUser(Http.Request request, String userId)
+    public Result updateUserNick(Http.Request request, String userId)
     {
-        Form<User> userForm = formFactory.form(User.class).bindFromRequest(request);
+        Form<User_patch> userForm = formFactory.form(User_patch.class).bindFromRequest(request);
         Messages messages = messagesApi.preferred(request);
 
         if(userForm.hasErrors())
@@ -180,7 +179,7 @@ public class UserController extends Controller
             return Results.notAcceptable(userForm.errorsAsJson());
         }
 
-        User user = userForm.get();
+        User_patch user = userForm.get();
         User userFound = User.findUserById(Long.valueOf(userId));
 
         if(userFound == null)
@@ -188,7 +187,7 @@ public class UserController extends Controller
             return Results.notFound();
         }
 
-        if(User.nickExists(user.getNick()) && !userFound.getNick().equals(user.getNick()))
+        if(User.nickExists(user.getNick()))
         {
             ObjectNode result = Json.newObject();
             result.put("conflict",messages.at("conflict_user_exists"));
@@ -196,8 +195,6 @@ public class UserController extends Controller
         }
 
         userFound.setNick(user.getNick());
-        userFound.setPass(user.getPass());
-
         userFound.update();
 
         if (request.accepts("application/xml"))
@@ -246,5 +243,4 @@ public class UserController extends Controller
             return Results.status(406,result);
         }
     }
-
 }

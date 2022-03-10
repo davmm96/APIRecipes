@@ -88,7 +88,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:41
+    // @LINE:39
     def updateIngredient: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.IngredientController.updateIngredient",
       """
@@ -168,7 +168,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:42
+    // @LINE:40
     def deleteIngredients: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecipeController.deleteIngredients",
       """
@@ -228,7 +228,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:43
+    // @LINE:41
     def deleteIngredient: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecipeController.deleteIngredient",
       """
