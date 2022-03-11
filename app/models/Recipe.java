@@ -120,7 +120,25 @@ public class Recipe extends Model
         return (recipeFound != null);
     }
 
-    public static List<Recipe> findAllRecipes(Integer offset){ return finder.query().where().setMaxRows(10).setFirstRow(offset).findList();}
+    public static List<Recipe> findAllRecipes(Integer offset)
+    {
+        return finder.query().where().setMaxRows(10).setFirstRow(offset).findList();
+    }
+
+    public static List<Recipe> findRecipesByMinuteMax(Integer offset, Integer minuteMax)
+    {
+        return finder.query().where().le("minutes",minuteMax).setMaxRows(10).setFirstRow(offset).findList();
+    }
+
+    public static List<Recipe> findRecipesByMinuteMin(Integer offset, Integer minuteMin)
+    {
+        return finder.query().where().ge("minutes",minuteMin).setMaxRows(10).setFirstRow(offset).findList();
+    }
+
+    public static List<Recipe> findRecipesByServes(Integer offset, Integer serves)
+    {
+        return finder.query().where().eq("serves",serves).setMaxRows(10).setFirstRow(offset).findList();
+    }
 
     public User getParentUser() {
         return parentUser;

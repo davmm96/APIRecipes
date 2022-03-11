@@ -1,107 +1,513 @@
-2022-03-11 19:10:35,237 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-6 - Database [default] initialized
-2022-03-11 19:10:35,240 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-6 - Creating Pool for datasource 'default'
-2022-03-11 19:10:35,898 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-6 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2022-03-11 22:42:24,513 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-8 - Database [default] initialized
+2022-03-11 22:42:24,516 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-8 - Creating Pool for datasource 'default'
+2022-03-11 22:42:25,094 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-8 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2022-03-11 19:10:35,977 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-6 - Application started (Dev) (no global state)
-2022-03-11 19:12:52,729 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:13:39,277 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:20:44,172 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:22:32,557 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-shutdown-hook-1 - Stopping Akka HTTP server...
-2022-03-11 19:22:32,560 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-3 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
-2022-03-11 19:22:32,570 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
-2022-03-11 19:22:32,611 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-3 - Running provided shutdown stop hooks
-2022-03-11 19:22:44,031 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:22:45,223 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
-2022-03-11 19:22:55,333 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:22:56,774 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
-2022-03-11 19:22:56,854 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:22:56,942 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
-2022-03-11 19:22:57,004 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:22:57,078 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-6 - Shutting down connection pool.
-2022-03-11 19:28:50,390 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:28:51,843 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
-2022-03-11 19:28:51,933 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:28:52,020 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-6 - Shutting down connection pool.
-2022-03-11 19:28:52,083 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:28:52,160 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
-2022-03-11 19:29:06,332 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:29:07,529 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
-2022-03-11 19:29:07,608 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:29:07,689 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
-2022-03-11 19:35:54,258 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:35:55,712 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
-2022-03-11 19:35:55,810 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:35:55,896 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
-2022-03-11 19:35:55,945 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:35:56,019 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-5 - Shutting down connection pool.
-2022-03-11 19:43:35,191 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:43:36,384 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
-2022-03-11 19:43:36,455 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:43:36,529 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
-2022-03-11 19:43:51,446 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:43:52,648 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
-2022-03-11 19:43:52,748 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:43:52,816 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-6 - Shutting down connection pool.
-2022-03-11 19:44:54,618 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:44:55,804 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
-2022-03-11 19:44:55,888 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:44:55,958 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-6 - Shutting down connection pool.
-2022-03-11 19:45:15,582 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:45:16,761 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
-2022-03-11 19:45:16,859 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:45:16,931 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
-2022-03-11 19:45:55,009 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:45:56,228 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
-2022-03-11 19:45:56,305 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:45:56,378 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
-2022-03-11 19:46:10,548 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:46:11,738 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
-2022-03-11 19:46:11,832 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 19:46:11,902 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-7 - Shutting down connection pool.
-2022-03-11 20:01:19,464 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:01:20,669 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
-2022-03-11 20:02:47,844 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:02:49,038 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
-2022-03-11 20:03:41,785 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:03:42,989 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
-2022-03-11 20:05:40,005 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:05:41,345 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
-2022-03-11 20:06:55,741 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:06:57,090 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
-2022-03-11 20:09:18,126 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:09:19,482 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
-2022-03-11 20:09:51,876 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:09:53,224 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
-2022-03-11 20:12:57,767 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:12:59,129 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
-2022-03-11 20:13:09,481 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:13:29,198 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:13:59,412 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:14:18,667 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=49s333ms127µs100ns).
-2022-03-11 20:14:36,593 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:16:26,548 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m15s832ms65µs100ns).
-2022-03-11 20:16:26,561 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
-2022-03-11 20:17:33,083 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:17:34,435 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
-2022-03-11 20:18:06,495 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:18:07,963 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
-2022-03-11 20:18:30,732 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:18:32,195 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
-2022-03-11 20:18:32,285 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:18:32,357 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
-2022-03-11 20:18:32,418 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:18:32,474 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-5 - Shutting down connection pool.
-2022-03-11 20:18:32,529 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:18:32,806 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-5 - Shutting down connection pool.
-2022-03-11 20:18:32,869 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:18:32,936 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-8 - Shutting down connection pool.
-2022-03-11 20:18:32,992 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:18:33,057 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
-2022-03-11 20:18:33,105 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:18:33,157 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
-2022-03-11 20:18:33,217 [INFO] from play.api.db.HikariCPConnectionPool in main - Creating Pool for datasource 'default'
-2022-03-11 20:18:33,269 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-5 - Shutting down connection pool.
+2022-03-11 22:42:25,170 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-8 - Application started (Dev) (no global state)
+2022-03-11 22:42:49,985 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-25-thread-10 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
+2022-03-11 22:42:49,985 [INFO] from play.core.server.AkkaHttpServer in pool-25-thread-10 - Stopping Akka HTTP server...
+2022-03-11 22:42:49,988 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-3 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2022-03-11 22:42:50,010 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-6 - Shutting down connection pool.
+2022-03-11 22:42:50,243 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-12 - Running provided shutdown stop hooks
+2022-03-11 22:43:07,695 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-9 - Database [default] initialized
+2022-03-11 22:43:07,696 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-9 - Creating Pool for datasource 'default'
+2022-03-11 22:43:08,087 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-9 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 22:43:08,153 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-9 - Application started (Dev) (no global state)
+2022-03-11 22:44:44,099 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
+2022-03-11 22:44:44,240 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-12 - Database [default] initialized
+2022-03-11 22:44:44,240 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-12 - Creating Pool for datasource 'default'
+2022-03-11 22:44:44,295 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-12 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 22:44:44,303 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-12 - Application started (Dev) (no global state)
+2022-03-11 22:46:23,999 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-5 - Shutting down connection pool.
+2022-03-11 22:46:24,122 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-12 - Database [default] initialized
+2022-03-11 22:46:24,122 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-12 - Creating Pool for datasource 'default'
+2022-03-11 22:46:24,181 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-12 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 22:46:24,187 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-12 - Application started (Dev) (no global state)
+2022-03-11 22:46:50,672 [ERROR] from play.api.http.DefaultHttpErrorHandler in application-akka.actor.default-dispatcher-7 - 
+
+! @7n1h71d8j - Internal server error, for (GET) [/recipes?filter=type&filterValue=Primer%20plato] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[PersistenceException: No property found for [name] in expression type.name]]
+	at play.api.http.HttpErrorHandlerExceptions$.$anonfun$convertToPlayException$2(HttpErrorHandler.scala:381)
+	at scala.Option.map(Option.scala:242)
+	at play.api.http.HttpErrorHandlerExceptions$.convertToPlayException(HttpErrorHandler.scala:380)
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:373)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:264)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:430)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:422)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:454)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:63)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:100)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:100)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: javax.persistence.PersistenceException: No property found for [name] in expression type.name
+	at io.ebeaninternal.server.deploy.BeanDescriptor.buildElGetValue(BeanDescriptor.java:2464)
+	at io.ebeaninternal.server.deploy.BeanPropertyAssoc.createElPropertyValue(BeanPropertyAssoc.java:187)
+	at io.ebeaninternal.server.deploy.BeanPropertyAssocOne.buildElPropertyValue(BeanPropertyAssocOne.java:241)
+	at io.ebeaninternal.server.deploy.BeanDescriptor.buildElGetValue(BeanDescriptor.java:2456)
+	at io.ebeaninternal.server.deploy.BeanDescriptor.getElPropertyDeploy(BeanDescriptor.java:2431)
+	at io.ebeaninternal.server.expression.AbstractExpression.propertyContainsMany(AbstractExpression.java:73)
+	at io.ebeaninternal.server.expression.AbstractExpression.containsMany(AbstractExpression.java:65)
+	at io.ebeaninternal.server.expression.DefaultExpressionList.containsMany(DefaultExpressionList.java:276)
+	at io.ebeaninternal.server.querydefn.DefaultOrmQuery.createExtraJoinsToSupportManyWhereClause(DefaultOrmQuery.java:537)
+	at io.ebeaninternal.server.querydefn.DefaultOrmQuery.convertJoins(DefaultOrmQuery.java:605)
+	at io.ebeaninternal.server.core.OrmQueryRequest.prepareQuery(OrmQueryRequest.java:224)
+	at io.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1526)
+	at io.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1515)
+	at io.ebeaninternal.server.querydefn.DefaultOrmQuery.findList(DefaultOrmQuery.java:1604)
+	at io.ebeaninternal.server.expression.DefaultExpressionList.findList(DefaultExpressionList.java:451)
+	at models.Recipe.findRecipesByType(Recipe.java:144)
+	at controllers.RecipeController.getRecipeList(RecipeController.java:41)
+	at controllers.RecipeController.getAllRecipes(RecipeController.java:59)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$21(Routes.scala:736)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:150)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:149)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$3$$anon$4$$anon$5.invocation(HandlerInvoker.scala:115)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:119)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:33)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:175)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:672)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:431)
+	at play.core.j.HttpExecutionContext.$anonfun$execute$1(HttpExecutionContext.scala:64)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:59)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:393)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:276)
+	at scala.concurrent.impl.Promise$DefaultPromise.map(Promise.scala:146)
+	at scala.concurrent.Future$.apply(Future.scala:672)
+	at play.core.j.JavaAction.apply(JavaAction.scala:176)
+	at play.api.mvc.Action.$anonfun$apply$4(Action.scala:82)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:434)
+	... 12 common frames omitted
+2022-03-11 22:47:49,275 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
+2022-03-11 22:47:49,366 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-18 - Database [default] initialized
+2022-03-11 22:47:49,366 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-18 - Creating Pool for datasource 'default'
+2022-03-11 22:47:49,428 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-18 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 22:47:49,432 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-18 - Application started (Dev) (no global state)
+2022-03-11 22:47:49,447 [ERROR] from play.api.http.DefaultHttpErrorHandler in application-akka.actor.default-dispatcher-6 - 
+
+! @7n1h74m7a - Internal server error, for (GET) [/recipes?filter=type&filterValue=Primer%20plato] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[PersistenceException: Query threw SQLException:Columna "RECIPETYPE.NAME" no encontrada
+Column "RECIPETYPE.NAME" not found; SQL statement:
+select t0.id, t0.name, t0.minutes, t0.serves, t0.parent_user_id, t0.steps_id, t0.type_id from recipe t0 where RecipeType.name = ? limit 10 [42122-200] Bind values:[null] Query was:select t0.id, t0.name, t0.minutes, t0.serves, t0.parent_user_id, t0.steps_id, t0.type_id from recipe t0 where RecipeType.name = ? limit 10]]
+	at play.api.http.HttpErrorHandlerExceptions$.$anonfun$convertToPlayException$2(HttpErrorHandler.scala:381)
+	at scala.Option.map(Option.scala:242)
+	at play.api.http.HttpErrorHandlerExceptions$.convertToPlayException(HttpErrorHandler.scala:380)
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:373)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:264)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:430)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:422)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:454)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:63)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:100)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:100)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: javax.persistence.PersistenceException: Query threw SQLException:Columna "RECIPETYPE.NAME" no encontrada
+Column "RECIPETYPE.NAME" not found; SQL statement:
+select t0.id, t0.name, t0.minutes, t0.serves, t0.parent_user_id, t0.steps_id, t0.type_id from recipe t0 where RecipeType.name = ? limit 10 [42122-200] Bind values:[null] Query was:select t0.id, t0.name, t0.minutes, t0.serves, t0.parent_user_id, t0.steps_id, t0.type_id from recipe t0 where RecipeType.name = ? limit 10
+	at io.ebean.config.dbplatform.SqlCodeTranslator.translate(SqlCodeTranslator.java:55)
+	at io.ebean.config.dbplatform.DatabasePlatform.translate(DatabasePlatform.java:231)
+	at io.ebeaninternal.server.query.CQueryEngine.translate(CQueryEngine.java:145)
+	at io.ebeaninternal.server.query.DefaultOrmQueryEngine.translate(DefaultOrmQueryEngine.java:43)
+	at io.ebeaninternal.server.core.OrmQueryRequest.translate(OrmQueryRequest.java:106)
+	at io.ebeaninternal.server.query.CQuery.createPersistenceException(CQuery.java:692)
+	at io.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:396)
+	at io.ebeaninternal.server.query.DefaultOrmQueryEngine.findMany(DefaultOrmQueryEngine.java:131)
+	at io.ebeaninternal.server.core.OrmQueryRequest.findList(OrmQueryRequest.java:470)
+	at io.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1536)
+	at io.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1515)
+	at io.ebeaninternal.server.querydefn.DefaultOrmQuery.findList(DefaultOrmQuery.java:1604)
+	at io.ebeaninternal.server.expression.DefaultExpressionList.findList(DefaultExpressionList.java:451)
+	at models.Recipe.findRecipesByType(Recipe.java:144)
+	at controllers.RecipeController.getRecipeList(RecipeController.java:41)
+	at controllers.RecipeController.getAllRecipes(RecipeController.java:59)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$21(Routes.scala:736)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:150)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:149)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$3$$anon$4$$anon$5.invocation(HandlerInvoker.scala:115)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:119)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:33)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:175)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:672)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:431)
+	at play.core.j.HttpExecutionContext.$anonfun$execute$1(HttpExecutionContext.scala:64)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:59)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:393)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:276)
+	at scala.concurrent.impl.Promise$DefaultPromise.map(Promise.scala:146)
+	at scala.concurrent.Future$.apply(Future.scala:672)
+	at play.core.j.JavaAction.apply(JavaAction.scala:176)
+	at play.api.mvc.Action.$anonfun$apply$4(Action.scala:82)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:434)
+	... 12 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "RECIPETYPE.NAME" no encontrada
+Column "RECIPETYPE.NAME" not found; SQL statement:
+select t0.id, t0.name, t0.minutes, t0.serves, t0.parent_user_id, t0.steps_id, t0.type_id from recipe t0 where RecipeType.name = ? limit 10 [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:163)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:145)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:190)
+	at org.h2.command.dml.Select.prepare(Select.java:1209)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352)
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:337)
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
+	at io.ebeaninternal.server.query.CQuery.prepareResultSet(CQuery.java:357)
+	at io.ebeaninternal.server.query.CQuery.prepareBindExecuteQueryWithOption(CQuery.java:325)
+	at io.ebeaninternal.server.query.CQuery.prepareBindExecuteQuery(CQuery.java:321)
+	at io.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:369)
+	... 41 common frames omitted
+2022-03-11 22:48:17,614 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
+2022-03-11 22:48:17,728 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-18 - Database [default] initialized
+2022-03-11 22:48:17,728 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-18 - Creating Pool for datasource 'default'
+2022-03-11 22:48:17,773 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-18 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 22:48:17,777 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-18 - Application started (Dev) (no global state)
+2022-03-11 22:48:17,790 [ERROR] from play.api.http.DefaultHttpErrorHandler in application-akka.actor.default-dispatcher-5 - 
+
+! @7n1h76c5d - Internal server error, for (GET) [/recipes?filter=type&filterValue=Primer%20plato] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[PersistenceException: Query threw SQLException:Columna "TYPE_ID.NAME" no encontrada
+Column "TYPE_ID.NAME" not found; SQL statement:
+select t0.id, t0.name, t0.minutes, t0.serves, t0.parent_user_id, t0.steps_id, t0.type_id from recipe t0 where Type_ID.name = ? limit 10 [42122-200] Bind values:[null] Query was:select t0.id, t0.name, t0.minutes, t0.serves, t0.parent_user_id, t0.steps_id, t0.type_id from recipe t0 where Type_ID.name = ? limit 10]]
+	at play.api.http.HttpErrorHandlerExceptions$.$anonfun$convertToPlayException$2(HttpErrorHandler.scala:381)
+	at scala.Option.map(Option.scala:242)
+	at play.api.http.HttpErrorHandlerExceptions$.convertToPlayException(HttpErrorHandler.scala:380)
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:373)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:264)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:430)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:422)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:454)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:63)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:100)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:100)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: javax.persistence.PersistenceException: Query threw SQLException:Columna "TYPE_ID.NAME" no encontrada
+Column "TYPE_ID.NAME" not found; SQL statement:
+select t0.id, t0.name, t0.minutes, t0.serves, t0.parent_user_id, t0.steps_id, t0.type_id from recipe t0 where Type_ID.name = ? limit 10 [42122-200] Bind values:[null] Query was:select t0.id, t0.name, t0.minutes, t0.serves, t0.parent_user_id, t0.steps_id, t0.type_id from recipe t0 where Type_ID.name = ? limit 10
+	at io.ebean.config.dbplatform.SqlCodeTranslator.translate(SqlCodeTranslator.java:55)
+	at io.ebean.config.dbplatform.DatabasePlatform.translate(DatabasePlatform.java:231)
+	at io.ebeaninternal.server.query.CQueryEngine.translate(CQueryEngine.java:145)
+	at io.ebeaninternal.server.query.DefaultOrmQueryEngine.translate(DefaultOrmQueryEngine.java:43)
+	at io.ebeaninternal.server.core.OrmQueryRequest.translate(OrmQueryRequest.java:106)
+	at io.ebeaninternal.server.query.CQuery.createPersistenceException(CQuery.java:692)
+	at io.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:396)
+	at io.ebeaninternal.server.query.DefaultOrmQueryEngine.findMany(DefaultOrmQueryEngine.java:131)
+	at io.ebeaninternal.server.core.OrmQueryRequest.findList(OrmQueryRequest.java:470)
+	at io.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1536)
+	at io.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1515)
+	at io.ebeaninternal.server.querydefn.DefaultOrmQuery.findList(DefaultOrmQuery.java:1604)
+	at io.ebeaninternal.server.expression.DefaultExpressionList.findList(DefaultExpressionList.java:451)
+	at models.Recipe.findRecipesByType(Recipe.java:144)
+	at controllers.RecipeController.getRecipeList(RecipeController.java:41)
+	at controllers.RecipeController.getAllRecipes(RecipeController.java:59)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$21(Routes.scala:736)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:150)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:149)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$3$$anon$4$$anon$5.invocation(HandlerInvoker.scala:115)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:119)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:33)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:175)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:672)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:431)
+	at play.core.j.HttpExecutionContext.$anonfun$execute$1(HttpExecutionContext.scala:64)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:59)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:393)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:276)
+	at scala.concurrent.impl.Promise$DefaultPromise.map(Promise.scala:146)
+	at scala.concurrent.Future$.apply(Future.scala:672)
+	at play.core.j.JavaAction.apply(JavaAction.scala:176)
+	at play.api.mvc.Action.$anonfun$apply$4(Action.scala:82)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:434)
+	... 12 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "TYPE_ID.NAME" no encontrada
+Column "TYPE_ID.NAME" not found; SQL statement:
+select t0.id, t0.name, t0.minutes, t0.serves, t0.parent_user_id, t0.steps_id, t0.type_id from recipe t0 where Type_ID.name = ? limit 10 [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:163)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:145)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:190)
+	at org.h2.command.dml.Select.prepare(Select.java:1209)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352)
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:337)
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
+	at io.ebeaninternal.server.query.CQuery.prepareResultSet(CQuery.java:357)
+	at io.ebeaninternal.server.query.CQuery.prepareBindExecuteQueryWithOption(CQuery.java:325)
+	at io.ebeaninternal.server.query.CQuery.prepareBindExecuteQuery(CQuery.java:321)
+	at io.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:369)
+	... 41 common frames omitted
+2022-03-11 22:49:31,125 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
+2022-03-11 22:49:31,232 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-23 - Database [default] initialized
+2022-03-11 22:49:31,232 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-23 - Creating Pool for datasource 'default'
+2022-03-11 22:49:31,283 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-23 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 22:49:31,286 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-23 - Application started (Dev) (no global state)
+2022-03-11 22:49:31,297 [ERROR] from play.api.http.DefaultHttpErrorHandler in application-akka.actor.default-dispatcher-7 - 
+
+! @7n1h7agoi - Internal server error, for (GET) [/recipes?filter=type&filterValue=Postre] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[NumberFormatException: For input string: "Postre"]]
+	at play.api.http.HttpErrorHandlerExceptions$.$anonfun$convertToPlayException$2(HttpErrorHandler.scala:381)
+	at scala.Option.map(Option.scala:242)
+	at play.api.http.HttpErrorHandlerExceptions$.convertToPlayException(HttpErrorHandler.scala:380)
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:373)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:264)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:430)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:422)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:454)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:63)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:100)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:100)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: java.lang.NumberFormatException: For input string: "Postre"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Long.parseLong(Long.java:692)
+	at java.base/java.lang.Long.valueOf(Long.java:1144)
+	at controllers.RecipeController.getRecipeList(RecipeController.java:41)
+	at controllers.RecipeController.getAllRecipes(RecipeController.java:59)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$21(Routes.scala:736)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:150)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:149)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$3$$anon$4$$anon$5.invocation(HandlerInvoker.scala:115)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:119)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:33)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:175)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:672)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:431)
+	at play.core.j.HttpExecutionContext.$anonfun$execute$1(HttpExecutionContext.scala:64)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:59)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:393)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:276)
+	at scala.concurrent.impl.Promise$DefaultPromise.map(Promise.scala:146)
+	at scala.concurrent.Future$.apply(Future.scala:672)
+	at play.core.j.JavaAction.apply(JavaAction.scala:176)
+	at play.api.mvc.Action.$anonfun$apply$4(Action.scala:82)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:434)
+	... 12 common frames omitted
+2022-03-11 22:50:28,094 [ERROR] from play.api.http.DefaultHttpErrorHandler in application-akka.actor.default-dispatcher-7 - 
+
+! @7n1h7dmp5 - Internal server error, for (GET) [/recipes?filter=type&filterValue=1] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[ClassCastException: class java.lang.Long cannot be cast to class io.ebean.bean.EntityBean (java.lang.Long is in module java.base of loader 'bootstrap'; io.ebean.bean.EntityBean is in unnamed module of loader play.runsupport.NamedURLClassLoader @686edb5e)]]
+	at play.api.http.HttpErrorHandlerExceptions$.$anonfun$convertToPlayException$2(HttpErrorHandler.scala:381)
+	at scala.Option.map(Option.scala:242)
+	at play.api.http.HttpErrorHandlerExceptions$.convertToPlayException(HttpErrorHandler.scala:380)
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:373)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:264)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:430)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:422)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:454)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:63)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:100)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:100)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: java.lang.ClassCastException: class java.lang.Long cannot be cast to class io.ebean.bean.EntityBean (java.lang.Long is in module java.base of loader 'bootstrap'; io.ebean.bean.EntityBean is in unnamed module of loader play.runsupport.NamedURLClassLoader @686edb5e)
+	at io.ebeaninternal.server.expression.SimpleExpression.addBindValues(SimpleExpression.java:75)
+	at io.ebeaninternal.server.expression.DefaultExpressionList.addBindValues(DefaultExpressionList.java:639)
+	at io.ebeaninternal.server.expression.DefaultExpressionRequest.<init>(DefaultExpressionRequest.java:46)
+	at io.ebeaninternal.server.query.CQueryPredicates.prepare(CQueryPredicates.java:229)
+	at io.ebeaninternal.server.query.CQueryBuilder.buildQuery(CQueryBuilder.java:350)
+	at io.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:362)
+	at io.ebeaninternal.server.query.DefaultOrmQueryEngine.findMany(DefaultOrmQueryEngine.java:131)
+	at io.ebeaninternal.server.core.OrmQueryRequest.findList(OrmQueryRequest.java:470)
+	at io.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1536)
+	at io.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1515)
+	at io.ebeaninternal.server.querydefn.DefaultOrmQuery.findList(DefaultOrmQuery.java:1604)
+	at io.ebeaninternal.server.expression.DefaultExpressionList.findList(DefaultExpressionList.java:451)
+	at models.Recipe.findRecipesByType(Recipe.java:144)
+	at controllers.RecipeController.getRecipeList(RecipeController.java:41)
+	at controllers.RecipeController.getAllRecipes(RecipeController.java:59)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$21(Routes.scala:736)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:150)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:149)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$3$$anon$4$$anon$5.invocation(HandlerInvoker.scala:115)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:119)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:33)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:175)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:672)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:431)
+	at play.core.j.HttpExecutionContext.$anonfun$execute$1(HttpExecutionContext.scala:64)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:59)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:393)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:276)
+	at scala.concurrent.impl.Promise$DefaultPromise.map(Promise.scala:146)
+	at scala.concurrent.Future$.apply(Future.scala:672)
+	at play.core.j.JavaAction.apply(JavaAction.scala:176)
+	at play.api.mvc.Action.$anonfun$apply$4(Action.scala:82)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:434)
+	... 12 common frames omitted
+2022-03-11 22:54:06,743 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
+2022-03-11 22:54:06,842 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-22 - Database [default] initialized
+2022-03-11 22:54:06,843 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-22 - Creating Pool for datasource 'default'
+2022-03-11 22:54:06,912 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-22 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 22:54:06,916 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-22 - Application started (Dev) (no global state)
+2022-03-11 22:54:06,929 [ERROR] from play.api.http.DefaultHttpErrorHandler in application-akka.actor.default-dispatcher-6 - 
+
+! @7n1h808hn - Internal server error, for (GET) [/recipes?filter=type&filterValue=1] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.http.HttpErrorHandlerExceptions$.$anonfun$convertToPlayException$2(HttpErrorHandler.scala:381)
+	at scala.Option.map(Option.scala:242)
+	at play.api.http.HttpErrorHandlerExceptions$.convertToPlayException(HttpErrorHandler.scala:380)
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:373)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:264)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:430)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:422)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:454)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:63)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:100)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:100)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: java.lang.NullPointerException: null
+	at controllers.RecipeController.getRecipeList(RecipeController.java:41)
+	at controllers.RecipeController.getAllRecipes(RecipeController.java:59)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$21(Routes.scala:736)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:150)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:149)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$3$$anon$4$$anon$5.invocation(HandlerInvoker.scala:115)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:119)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:33)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:175)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:672)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:431)
+	at play.core.j.HttpExecutionContext.$anonfun$execute$1(HttpExecutionContext.scala:64)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:59)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:393)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:276)
+	at scala.concurrent.impl.Promise$DefaultPromise.map(Promise.scala:146)
+	at scala.concurrent.Future$.apply(Future.scala:672)
+	at play.core.j.JavaAction.apply(JavaAction.scala:176)
+	at play.api.mvc.Action.$anonfun$apply$4(Action.scala:82)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:434)
+	... 12 common frames omitted
+2022-03-11 22:57:29,164 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
+2022-03-11 22:57:29,270 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-26 - Database [default] initialized
+2022-03-11 22:57:29,270 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-26 - Creating Pool for datasource 'default'
+2022-03-11 22:57:29,318 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-26 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 22:57:29,322 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-26 - Application started (Dev) (no global state)
+2022-03-11 23:01:30,563 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-5 - Shutting down connection pool.
+2022-03-11 23:01:30,669 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-27 - Database [default] initialized
+2022-03-11 23:01:30,669 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-27 - Creating Pool for datasource 'default'
+2022-03-11 23:01:30,717 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-27 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 23:01:30,724 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-27 - Application started (Dev) (no global state)

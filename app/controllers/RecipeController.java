@@ -14,6 +14,7 @@ import play.mvc.Results;
 import play.twirl.api.Content;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,7 +31,14 @@ public class RecipeController extends Controller {
         Optional<String> opOffset = request.queryString("offset");
         String offset = opOffset.orElse("0");
 
-        List<Recipe> array_recipes = Recipe.findAllRecipes(Integer.valueOf(offset));
+        Optional<String> opFilter = request.queryString("filter");
+        String filter = opFilter.orElse("default");
+
+        Optional<String> opFilterValue = request.queryString("filterValue");
+        String filterValue = opFilterValue.orElse("default");
+
+
+        List<Recipe> array_recipes = getRecipeList(Integer.valueOf(offset), filter, filterValue);
 
         if(!array_recipes.isEmpty())
         {
@@ -695,6 +703,33 @@ public class RecipeController extends Controller {
             ObjectNode result = Json.newObject();
             result.put("error",messages.at("conflict_format"));
             return Results.status(406,result);
+        }
+    }
+
+    //Filter Recipes
+    public List<Recipe> getRecipeList(Integer offset, String filter, String filterValue)
+    {
+        if(filter.equals("default") || filterValue.equals("default"))
+        {
+            return Recipe.findAllRecipes(offset);
+        }
+        else
+        {
+            switch (filter)
+            {
+                case "minuteMin" :      return Recipe.findRecipesByMinuteMin(offset,Integer.valueOf(filterValue));
+                case "minuteMax" :      return Recipe.findRecipesByMinuteMax(offset,Integer.valueOf(filterValue));
+                case "serves"    :      return Recipe.findRecipesByServes(offset,Integer.valueOf(filterValue));
+                case "type"      :      if(RecipeType.findTypeByName(filterValue) != null)
+                    return RecipeType.findTypeByName(filterValue).getRecipes();
+                else
+                    return new ArrayList<>();
+                case "ingredient":      if(Ingredient.findIngredientByName(filterValue) != null)
+                    return Ingredient.findIngredientByName(filterValue).getRecipes();
+                else
+                    return new ArrayList<>();
+                default          :      return Recipe.findAllRecipes(offset);
+            }
         }
     }
 }
