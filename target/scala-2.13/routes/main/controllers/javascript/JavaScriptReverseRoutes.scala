@@ -18,7 +18,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:33
+    // @LINE:34
     def deleteType: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecipeTypeController.deleteType",
       """
@@ -70,7 +70,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:36
+  // @LINE:37
   class ReverseIngredientController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -78,7 +78,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:40
+    // @LINE:41
     def deleteIngredient: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.IngredientController.deleteIngredient",
       """
@@ -88,7 +88,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:37
+    // @LINE:38
     def getIngredient: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.IngredientController.getIngredient",
       """
@@ -98,7 +98,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:39
+    // @LINE:40
     def updateIngredient: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.IngredientController.updateIngredient",
       """
@@ -108,7 +108,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:36
+    // @LINE:37
     def getAllIngredients: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.IngredientController.getAllIngredients",
       """
@@ -178,7 +178,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:41
+    // @LINE:42
     def deleteIngredients: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecipeController.deleteIngredients",
       """
@@ -228,6 +228,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:33
+    def updateType: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecipeController.updateType",
+      """
+        function(recipeId0) {
+          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "recipe/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("recipeId", recipeId0)) + "/types"})
+        }
+      """
+    )
+  
     // @LINE:16
     def getUserRecipes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecipeController.getUserRecipes",
@@ -238,7 +248,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:42
+    // @LINE:43
     def deleteIngredient: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecipeController.deleteIngredient",
       """
@@ -248,7 +258,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:38
+    // @LINE:39
     def getIngredients: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecipeController.getIngredients",
       """

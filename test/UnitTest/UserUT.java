@@ -7,20 +7,14 @@ import static org.junit.Assert.assertEquals;
 public class UserUT {
 
     @Test
-    public void checkNick() {
+    public void testData() {
 
         User user = new User();
         user.setNick("david");
-
-        assertEquals("david", user.getNick());
-    }
-
-    @Test
-    public void checkPass() {
-
-        User user = new User();
         user.setPass("123456aA");
 
+        assertEquals("david", user.getNick());
         assertEquals("123456aA", user.getPass());
+
     }
 }

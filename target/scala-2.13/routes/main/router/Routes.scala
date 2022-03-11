@@ -19,7 +19,7 @@ class Routes(
   RecipeController_1: controllers.RecipeController,
   // @LINE:29
   RecipeTypeController_0: controllers.RecipeTypeController,
-  // @LINE:36
+  // @LINE:37
   IngredientController_2: controllers.IngredientController,
   val prefix: String
 ) extends GeneratedRouter {
@@ -32,7 +32,7 @@ class Routes(
     RecipeController_1: controllers.RecipeController,
     // @LINE:29
     RecipeTypeController_0: controllers.RecipeTypeController,
-    // @LINE:36
+    // @LINE:37
     IngredientController_2: controllers.IngredientController
   ) = this(errorHandler, UserController_3, RecipeController_1, RecipeTypeController_0, IngredientController_2, "/")
 
@@ -68,6 +68,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """type/""" + "$" + """typeId<[^/]+>""", """controllers.RecipeTypeController.getType(request:Request, typeId:String)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """types""", """controllers.RecipeTypeController.createType(request:Request)"""),
     ("""PUT""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """type/""" + "$" + """typeId<[^/]+>""", """controllers.RecipeTypeController.updateType(request:Request, typeId:String)"""),
+    ("""PUT""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """recipe/""" + "$" + """recipeId<[^/]+>/types""", """controllers.RecipeController.updateType(request:Request, recipeId:String)"""),
     ("""DELETE""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """type/""" + "$" + """typeId<[^/]+>""", """controllers.RecipeTypeController.deleteType(request:Request, typeId:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """ingredients""", """controllers.IngredientController.getAllIngredients(request:Request)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """ingredient/""" + "$" + """ingredientId<[^/]+>""", """controllers.IngredientController.getIngredient(request:Request, ingredientId:String)"""),
@@ -504,10 +505,30 @@ class Routes(
   )
 
   // @LINE:33
-  private[this] lazy val controllers_RecipeTypeController_deleteType21_route = Route("DELETE",
+  private[this] lazy val controllers_RecipeController_updateType21_route = Route("PUT",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("recipe/"), DynamicPart("recipeId", """[^/]+""",true), StaticPart("/types")))
+  )
+  private[this] lazy val controllers_RecipeController_updateType21_invoker = createInvoker(
+    
+    (req:play.mvc.Http.Request) =>
+      RecipeController_1.updateType(fakeValue[play.mvc.Http.Request], fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.RecipeController",
+      "updateType",
+      Seq(classOf[play.mvc.Http.Request], classOf[String]),
+      "PUT",
+      this.prefix + """recipe/""" + "$" + """recipeId<[^/]+>/types""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:34
+  private[this] lazy val controllers_RecipeTypeController_deleteType22_route = Route("DELETE",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("type/"), DynamicPart("typeId", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_RecipeTypeController_deleteType21_invoker = createInvoker(
+  private[this] lazy val controllers_RecipeTypeController_deleteType22_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
       RecipeTypeController_0.deleteType(fakeValue[play.mvc.Http.Request], fakeValue[String]),
@@ -523,11 +544,11 @@ class Routes(
     )
   )
 
-  // @LINE:36
-  private[this] lazy val controllers_IngredientController_getAllIngredients22_route = Route("GET",
+  // @LINE:37
+  private[this] lazy val controllers_IngredientController_getAllIngredients23_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("ingredients")))
   )
-  private[this] lazy val controllers_IngredientController_getAllIngredients22_invoker = createInvoker(
+  private[this] lazy val controllers_IngredientController_getAllIngredients23_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
       IngredientController_2.getAllIngredients(fakeValue[play.mvc.Http.Request]),
@@ -543,11 +564,11 @@ class Routes(
     )
   )
 
-  // @LINE:37
-  private[this] lazy val controllers_IngredientController_getIngredient23_route = Route("GET",
+  // @LINE:38
+  private[this] lazy val controllers_IngredientController_getIngredient24_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("ingredient/"), DynamicPart("ingredientId", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_IngredientController_getIngredient23_invoker = createInvoker(
+  private[this] lazy val controllers_IngredientController_getIngredient24_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
       IngredientController_2.getIngredient(fakeValue[play.mvc.Http.Request], fakeValue[String]),
@@ -563,11 +584,11 @@ class Routes(
     )
   )
 
-  // @LINE:38
-  private[this] lazy val controllers_RecipeController_getIngredients24_route = Route("GET",
+  // @LINE:39
+  private[this] lazy val controllers_RecipeController_getIngredients25_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("recipe/"), DynamicPart("recipeId", """[^/]+""",true), StaticPart("/ingredients")))
   )
-  private[this] lazy val controllers_RecipeController_getIngredients24_invoker = createInvoker(
+  private[this] lazy val controllers_RecipeController_getIngredients25_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
       RecipeController_1.getIngredients(fakeValue[play.mvc.Http.Request], fakeValue[String]),
@@ -583,11 +604,11 @@ class Routes(
     )
   )
 
-  // @LINE:39
-  private[this] lazy val controllers_IngredientController_updateIngredient25_route = Route("PUT",
+  // @LINE:40
+  private[this] lazy val controllers_IngredientController_updateIngredient26_route = Route("PUT",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("ingredient/"), DynamicPart("ingredientId", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_IngredientController_updateIngredient25_invoker = createInvoker(
+  private[this] lazy val controllers_IngredientController_updateIngredient26_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
       IngredientController_2.updateIngredient(fakeValue[play.mvc.Http.Request], fakeValue[String]),
@@ -603,11 +624,11 @@ class Routes(
     )
   )
 
-  // @LINE:40
-  private[this] lazy val controllers_IngredientController_deleteIngredient26_route = Route("DELETE",
+  // @LINE:41
+  private[this] lazy val controllers_IngredientController_deleteIngredient27_route = Route("DELETE",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("ingredient/"), DynamicPart("ingredientId", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_IngredientController_deleteIngredient26_invoker = createInvoker(
+  private[this] lazy val controllers_IngredientController_deleteIngredient27_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
       IngredientController_2.deleteIngredient(fakeValue[play.mvc.Http.Request], fakeValue[String]),
@@ -623,11 +644,11 @@ class Routes(
     )
   )
 
-  // @LINE:41
-  private[this] lazy val controllers_RecipeController_deleteIngredients27_route = Route("DELETE",
+  // @LINE:42
+  private[this] lazy val controllers_RecipeController_deleteIngredients28_route = Route("DELETE",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("recipe/"), DynamicPart("recipeId", """[^/]+""",true), StaticPart("/ingredients")))
   )
-  private[this] lazy val controllers_RecipeController_deleteIngredients27_invoker = createInvoker(
+  private[this] lazy val controllers_RecipeController_deleteIngredients28_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
       RecipeController_1.deleteIngredients(fakeValue[play.mvc.Http.Request], fakeValue[String]),
@@ -643,11 +664,11 @@ class Routes(
     )
   )
 
-  // @LINE:42
-  private[this] lazy val controllers_RecipeController_deleteIngredient28_route = Route("DELETE",
+  // @LINE:43
+  private[this] lazy val controllers_RecipeController_deleteIngredient29_route = Route("DELETE",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("recipe/"), DynamicPart("recipeId", """[^/]+""",true), StaticPart("/ingredient/"), DynamicPart("ingredientId", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_RecipeController_deleteIngredient28_invoker = createInvoker(
+  private[this] lazy val controllers_RecipeController_deleteIngredient29_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
       RecipeController_1.deleteIngredient(fakeValue[play.mvc.Http.Request], fakeValue[String], fakeValue[String]),
@@ -814,58 +835,65 @@ class Routes(
       }
   
     // @LINE:33
-    case controllers_RecipeTypeController_deleteType21_route(params@_) =>
+    case controllers_RecipeController_updateType21_route(params@_) =>
+      call(params.fromPath[String]("recipeId", None)) { (recipeId) =>
+        controllers_RecipeController_updateType21_invoker.call(
+          req => RecipeController_1.updateType(req, recipeId))
+      }
+  
+    // @LINE:34
+    case controllers_RecipeTypeController_deleteType22_route(params@_) =>
       call(params.fromPath[String]("typeId", None)) { (typeId) =>
-        controllers_RecipeTypeController_deleteType21_invoker.call(
+        controllers_RecipeTypeController_deleteType22_invoker.call(
           req => RecipeTypeController_0.deleteType(req, typeId))
       }
   
-    // @LINE:36
-    case controllers_IngredientController_getAllIngredients22_route(params@_) =>
+    // @LINE:37
+    case controllers_IngredientController_getAllIngredients23_route(params@_) =>
       call { 
-        controllers_IngredientController_getAllIngredients22_invoker.call(
+        controllers_IngredientController_getAllIngredients23_invoker.call(
           req => IngredientController_2.getAllIngredients(req))
       }
   
-    // @LINE:37
-    case controllers_IngredientController_getIngredient23_route(params@_) =>
+    // @LINE:38
+    case controllers_IngredientController_getIngredient24_route(params@_) =>
       call(params.fromPath[String]("ingredientId", None)) { (ingredientId) =>
-        controllers_IngredientController_getIngredient23_invoker.call(
+        controllers_IngredientController_getIngredient24_invoker.call(
           req => IngredientController_2.getIngredient(req, ingredientId))
       }
   
-    // @LINE:38
-    case controllers_RecipeController_getIngredients24_route(params@_) =>
+    // @LINE:39
+    case controllers_RecipeController_getIngredients25_route(params@_) =>
       call(params.fromPath[String]("recipeId", None)) { (recipeId) =>
-        controllers_RecipeController_getIngredients24_invoker.call(
+        controllers_RecipeController_getIngredients25_invoker.call(
           req => RecipeController_1.getIngredients(req, recipeId))
       }
   
-    // @LINE:39
-    case controllers_IngredientController_updateIngredient25_route(params@_) =>
+    // @LINE:40
+    case controllers_IngredientController_updateIngredient26_route(params@_) =>
       call(params.fromPath[String]("ingredientId", None)) { (ingredientId) =>
-        controllers_IngredientController_updateIngredient25_invoker.call(
+        controllers_IngredientController_updateIngredient26_invoker.call(
           req => IngredientController_2.updateIngredient(req, ingredientId))
       }
   
-    // @LINE:40
-    case controllers_IngredientController_deleteIngredient26_route(params@_) =>
+    // @LINE:41
+    case controllers_IngredientController_deleteIngredient27_route(params@_) =>
       call(params.fromPath[String]("ingredientId", None)) { (ingredientId) =>
-        controllers_IngredientController_deleteIngredient26_invoker.call(
+        controllers_IngredientController_deleteIngredient27_invoker.call(
           req => IngredientController_2.deleteIngredient(req, ingredientId))
       }
   
-    // @LINE:41
-    case controllers_RecipeController_deleteIngredients27_route(params@_) =>
+    // @LINE:42
+    case controllers_RecipeController_deleteIngredients28_route(params@_) =>
       call(params.fromPath[String]("recipeId", None)) { (recipeId) =>
-        controllers_RecipeController_deleteIngredients27_invoker.call(
+        controllers_RecipeController_deleteIngredients28_invoker.call(
           req => RecipeController_1.deleteIngredients(req, recipeId))
       }
   
-    // @LINE:42
-    case controllers_RecipeController_deleteIngredient28_route(params@_) =>
+    // @LINE:43
+    case controllers_RecipeController_deleteIngredient29_route(params@_) =>
       call(params.fromPath[String]("recipeId", None), params.fromPath[String]("ingredientId", None)) { (recipeId, ingredientId) =>
-        controllers_RecipeController_deleteIngredient28_invoker.call(
+        controllers_RecipeController_deleteIngredient29_invoker.call(
           req => RecipeController_1.deleteIngredient(req, recipeId, ingredientId))
       }
   }

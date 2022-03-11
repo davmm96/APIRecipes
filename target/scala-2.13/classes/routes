@@ -30,6 +30,7 @@ GET      /types                                       controllers.RecipeTypeCont
 GET      /type/:typeId                                controllers.RecipeTypeController.getType(request: Request, typeId: String)
 POST     /types                                       controllers.RecipeTypeController.createType(request: Request)
 PUT      /type/:typeId                                controllers.RecipeTypeController.updateType(request: Request, typeId: String)
+PUT      /recipe/:recipeId/types                      controllers.RecipeController.updateType(request: Request, recipeId: String)
 DELETE   /type/:typeId                                controllers.RecipeTypeController.deleteType(request: Request, typeId: String)
 
 #INGREDIENTS

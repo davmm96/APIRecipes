@@ -1318,3 +1318,339 @@ Caused by: javax.persistence.NonUniqueResultException: Unique expecting 0 or 1 r
     play.filters.hosts.AllowedHostsFilter
 
 2022-03-11 01:13:37,379 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-213 - Application started (Dev) (no global state)
+2022-03-11 13:17:01,840 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-45 housekeeper - HikariPool-45 - Thread starvation or clock leap detected (housekeeper delta=11h18m53s786ms655µs700ns).
+2022-03-11 17:39:26,721 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
+2022-03-11 17:39:26,826 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-227 - Database [default] initialized
+2022-03-11 17:39:26,827 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-227 - Creating Pool for datasource 'default'
+2022-03-11 17:39:26,907 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-227 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 17:39:26,911 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-227 - Application started (Dev) (no global state)
+2022-03-11 17:46:06,340 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
+2022-03-11 17:46:06,439 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-235 - Database [default] initialized
+2022-03-11 17:46:06,439 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-235 - Creating Pool for datasource 'default'
+2022-03-11 17:46:06,485 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-235 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 17:46:06,488 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-235 - Application started (Dev) (no global state)
+2022-03-11 17:50:05,590 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
+2022-03-11 17:50:05,695 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-177 - Database [default] initialized
+2022-03-11 17:50:05,695 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-177 - Creating Pool for datasource 'default'
+2022-03-11 17:50:05,750 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-177 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 17:50:05,753 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-177 - Application started (Dev) (no global state)
+2022-03-11 17:51:02,981 [ERROR] from play.api.http.DefaultHttpErrorHandler in application-akka.actor.default-dispatcher-7 - 
+
+! @7n1fk5j98 - Internal server error, for (PUT) [/user/6/recipe/21] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[DuplicateKeyException: Error when batch flush on sql: insert into recipe_ingredient (recipe_id, ingredient_id) values (?, ?)]]
+	at play.api.http.HttpErrorHandlerExceptions$.$anonfun$convertToPlayException$2(HttpErrorHandler.scala:381)
+	at scala.Option.map(Option.scala:242)
+	at play.api.http.HttpErrorHandlerExceptions$.convertToPlayException(HttpErrorHandler.scala:380)
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:373)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:264)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:430)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:422)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:454)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:63)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:100)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:100)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: io.ebean.DuplicateKeyException: Error when batch flush on sql: insert into recipe_ingredient (recipe_id, ingredient_id) values (?, ?)
+	at io.ebean.config.dbplatform.SqlCodeTranslator.translate(SqlCodeTranslator.java:47)
+	at io.ebean.config.dbplatform.DatabasePlatform.translate(DatabasePlatform.java:231)
+	at io.ebeaninternal.server.transaction.TransactionManager.translate(TransactionManager.java:246)
+	at io.ebeaninternal.server.transaction.JdbcTransaction.translate(JdbcTransaction.java:675)
+	at io.ebeaninternal.server.transaction.JdbcTransaction.batchFlush(JdbcTransaction.java:657)
+	at io.ebeaninternal.server.transaction.JdbcTransaction.internalBatchFlush(JdbcTransaction.java:777)
+	at io.ebeaninternal.server.transaction.JdbcTransaction.preCommit(JdbcTransaction.java:1000)
+	at io.ebeaninternal.server.transaction.JdbcTransaction.flushCommitAndNotify(JdbcTransaction.java:987)
+	at io.ebeaninternal.server.transaction.JdbcTransaction.commit(JdbcTransaction.java:1048)
+	at io.ebeaninternal.server.core.DefaultServer.commitTransaction(DefaultServer.java:831)
+	at io.ebeaninternal.server.core.BeanRequest.commitTransIfRequired(BeanRequest.java:61)
+	at io.ebeaninternal.server.persist.DefaultPersister.update(DefaultPersister.java:420)
+	at io.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1706)
+	at io.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1701)
+	at io.ebean.Model.update(Model.java:219)
+	at controllers.RecipeController.updateRecipe(RecipeController.java:287)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$33(Routes.scala:743)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:150)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:149)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$3$$anon$4$$anon$5.invocation(HandlerInvoker.scala:115)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:119)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:33)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:175)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:672)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:431)
+	at play.core.j.HttpExecutionContext.$anonfun$execute$1(HttpExecutionContext.scala:64)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:59)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:393)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:276)
+	at scala.concurrent.impl.Promise$DefaultPromise.map(Promise.scala:146)
+	at scala.concurrent.Future$.apply(Future.scala:672)
+	at play.core.j.JavaAction.apply(JavaAction.scala:176)
+	at play.api.mvc.Action.$anonfun$apply$4(Action.scala:82)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:434)
+	... 12 common frames omitted
+Caused by: org.h2.jdbc.JdbcBatchUpdateException: Violación de indice de Unicidad ó Clave primaria: "PUBLIC.PRIMARY_KEY_7 ON PUBLIC.RECIPE_INGREDIENT(RECIPE_ID, INGREDIENT_ID) VALUES 39"
+Unique index or primary key violation: "PUBLIC.PRIMARY_KEY_7 ON PUBLIC.RECIPE_INGREDIENT(RECIPE_ID, INGREDIENT_ID) VALUES 39"; SQL statement:
+insert into recipe_ingredient (recipe_id, ingredient_id) values (?, ?) [23505-200]
+	at org.h2.jdbc.JdbcPreparedStatement.executeBatch(JdbcPreparedStatement.java:1235)
+	at com.zaxxer.hikari.pool.ProxyStatement.executeBatch(ProxyStatement.java:128)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeBatch(HikariProxyPreparedStatement.java)
+	at io.ebeaninternal.server.persist.BatchedPstmt.executeAndCheckRowCounts(BatchedPstmt.java:167)
+	at io.ebeaninternal.server.persist.BatchedPstmt.executeBatch(BatchedPstmt.java:123)
+	at io.ebeaninternal.server.persist.BatchedPstmtHolder.executeAll(BatchedPstmtHolder.java:139)
+	at io.ebeaninternal.server.persist.BatchedPstmtHolder.flush(BatchedPstmtHolder.java:115)
+	at io.ebeaninternal.server.persist.BatchControl.flushPstmtHolder(BatchControl.java:218)
+	at io.ebeaninternal.server.persist.BatchControl.flushQueue(BatchControl.java:281)
+	at io.ebeaninternal.server.persist.BatchControl.flushBuffer(BatchControl.java:276)
+	at io.ebeaninternal.server.persist.BatchControl.flushOnCommit(BatchControl.java:241)
+	at io.ebeaninternal.server.transaction.JdbcTransaction.batchFlush(JdbcTransaction.java:655)
+	... 43 common frames omitted
+2022-03-11 17:51:35,143 [ERROR] from play.api.http.DefaultHttpErrorHandler in application-akka.actor.default-dispatcher-7 - 
+
+! @7n1fk7eo8 - Internal server error, for (PUT) [/user/6/recipe/21] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[DuplicateKeyException: Error when batch flush on sql: insert into recipe_ingredient (recipe_id, ingredient_id) values (?, ?)]]
+	at play.api.http.HttpErrorHandlerExceptions$.$anonfun$convertToPlayException$2(HttpErrorHandler.scala:381)
+	at scala.Option.map(Option.scala:242)
+	at play.api.http.HttpErrorHandlerExceptions$.convertToPlayException(HttpErrorHandler.scala:380)
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:373)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:264)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:430)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:422)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:454)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:63)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:100)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:100)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: io.ebean.DuplicateKeyException: Error when batch flush on sql: insert into recipe_ingredient (recipe_id, ingredient_id) values (?, ?)
+	at io.ebean.config.dbplatform.SqlCodeTranslator.translate(SqlCodeTranslator.java:47)
+	at io.ebean.config.dbplatform.DatabasePlatform.translate(DatabasePlatform.java:231)
+	at io.ebeaninternal.server.transaction.TransactionManager.translate(TransactionManager.java:246)
+	at io.ebeaninternal.server.transaction.JdbcTransaction.translate(JdbcTransaction.java:675)
+	at io.ebeaninternal.server.transaction.JdbcTransaction.batchFlush(JdbcTransaction.java:657)
+	at io.ebeaninternal.server.transaction.JdbcTransaction.internalBatchFlush(JdbcTransaction.java:777)
+	at io.ebeaninternal.server.transaction.JdbcTransaction.preCommit(JdbcTransaction.java:1000)
+	at io.ebeaninternal.server.transaction.JdbcTransaction.flushCommitAndNotify(JdbcTransaction.java:987)
+	at io.ebeaninternal.server.transaction.JdbcTransaction.commit(JdbcTransaction.java:1048)
+	at io.ebeaninternal.server.core.DefaultServer.commitTransaction(DefaultServer.java:831)
+	at io.ebeaninternal.server.core.BeanRequest.commitTransIfRequired(BeanRequest.java:61)
+	at io.ebeaninternal.server.persist.DefaultPersister.update(DefaultPersister.java:420)
+	at io.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1706)
+	at io.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1701)
+	at io.ebean.Model.update(Model.java:219)
+	at controllers.RecipeController.updateRecipe(RecipeController.java:287)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$33(Routes.scala:743)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:150)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:149)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$3$$anon$4$$anon$5.invocation(HandlerInvoker.scala:115)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:119)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:33)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:175)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:672)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:431)
+	at play.core.j.HttpExecutionContext.$anonfun$execute$1(HttpExecutionContext.scala:64)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:59)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:393)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:276)
+	at scala.concurrent.impl.Promise$DefaultPromise.map(Promise.scala:146)
+	at scala.concurrent.Future$.apply(Future.scala:672)
+	at play.core.j.JavaAction.apply(JavaAction.scala:176)
+	at play.api.mvc.Action.$anonfun$apply$4(Action.scala:82)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:434)
+	... 12 common frames omitted
+Caused by: org.h2.jdbc.JdbcBatchUpdateException: Violación de indice de Unicidad ó Clave primaria: "PUBLIC.PRIMARY_KEY_7 ON PUBLIC.RECIPE_INGREDIENT(RECIPE_ID, INGREDIENT_ID) VALUES 42"
+Unique index or primary key violation: "PUBLIC.PRIMARY_KEY_7 ON PUBLIC.RECIPE_INGREDIENT(RECIPE_ID, INGREDIENT_ID) VALUES 42"; SQL statement:
+insert into recipe_ingredient (recipe_id, ingredient_id) values (?, ?) [23505-200]
+	at org.h2.jdbc.JdbcPreparedStatement.executeBatch(JdbcPreparedStatement.java:1235)
+	at com.zaxxer.hikari.pool.ProxyStatement.executeBatch(ProxyStatement.java:128)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeBatch(HikariProxyPreparedStatement.java)
+	at io.ebeaninternal.server.persist.BatchedPstmt.executeAndCheckRowCounts(BatchedPstmt.java:167)
+	at io.ebeaninternal.server.persist.BatchedPstmt.executeBatch(BatchedPstmt.java:123)
+	at io.ebeaninternal.server.persist.BatchedPstmtHolder.executeAll(BatchedPstmtHolder.java:139)
+	at io.ebeaninternal.server.persist.BatchedPstmtHolder.flush(BatchedPstmtHolder.java:115)
+	at io.ebeaninternal.server.persist.BatchControl.flushPstmtHolder(BatchControl.java:218)
+	at io.ebeaninternal.server.persist.BatchControl.flushQueue(BatchControl.java:281)
+	at io.ebeaninternal.server.persist.BatchControl.flushBuffer(BatchControl.java:276)
+	at io.ebeaninternal.server.persist.BatchControl.flushOnCommit(BatchControl.java:241)
+	at io.ebeaninternal.server.transaction.JdbcTransaction.batchFlush(JdbcTransaction.java:655)
+	... 43 common frames omitted
+2022-03-11 17:52:41,475 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-6 - Shutting down connection pool.
+2022-03-11 17:52:41,559 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-244 - Database [default] initialized
+2022-03-11 17:52:41,559 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-244 - Creating Pool for datasource 'default'
+2022-03-11 17:52:41,602 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-244 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 17:52:41,605 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-244 - Application started (Dev) (no global state)
+2022-03-11 18:02:10,106 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
+2022-03-11 18:02:10,224 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-236 - Database [default] initialized
+2022-03-11 18:02:10,224 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-236 - Creating Pool for datasource 'default'
+2022-03-11 18:02:10,266 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-236 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 18:02:10,269 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-236 - Application started (Dev) (no global state)
+2022-03-11 18:04:08,530 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
+2022-03-11 18:04:08,625 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-236 - Database [default] initialized
+2022-03-11 18:04:08,625 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-236 - Creating Pool for datasource 'default'
+2022-03-11 18:04:08,679 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-236 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 18:04:08,682 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-236 - Application started (Dev) (no global state)
+2022-03-11 18:04:36,104 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
+2022-03-11 18:04:36,196 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-257 - Database [default] initialized
+2022-03-11 18:04:36,197 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-257 - Creating Pool for datasource 'default'
+2022-03-11 18:04:36,238 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-257 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 18:04:36,240 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-257 - Application started (Dev) (no global state)
+2022-03-11 18:05:04,301 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
+2022-03-11 18:05:04,416 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-257 - Database [default] initialized
+2022-03-11 18:05:04,416 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-257 - Creating Pool for datasource 'default'
+2022-03-11 18:05:04,463 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-257 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 18:05:04,466 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-257 - Application started (Dev) (no global state)
+2022-03-11 18:06:32,547 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
+2022-03-11 18:06:32,635 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-263 - Database [default] initialized
+2022-03-11 18:06:32,635 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-263 - Creating Pool for datasource 'default'
+2022-03-11 18:06:32,680 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-263 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 18:06:32,682 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-263 - Application started (Dev) (no global state)
+2022-03-11 18:07:20,838 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
+2022-03-11 18:07:20,937 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-264 - Database [default] initialized
+2022-03-11 18:07:20,937 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-264 - Creating Pool for datasource 'default'
+2022-03-11 18:07:20,980 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-264 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 18:07:20,983 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-264 - Application started (Dev) (no global state)
+2022-03-11 18:15:13,308 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-2 - Shutting down connection pool.
+2022-03-11 18:15:13,414 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-259 - Database [default] initialized
+2022-03-11 18:15:13,414 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-259 - Creating Pool for datasource 'default'
+2022-03-11 18:15:13,454 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-259 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 18:15:13,457 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-259 - Application started (Dev) (no global state)
+2022-03-11 18:43:54,248 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
+2022-03-11 18:43:54,367 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-228 - Database [default] initialized
+2022-03-11 18:43:54,368 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-228 - Creating Pool for datasource 'default'
+2022-03-11 18:43:54,425 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-228 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-11 18:43:54,428 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-228 - Application started (Dev) (no global state)
+2022-03-11 18:44:05,608 [ERROR] from play.api.http.DefaultHttpErrorHandler in application-akka.actor.default-dispatcher-5 - 
+
+! @7n1g14la1 - Internal server error, for (GET) [/recipes] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.http.HttpErrorHandlerExceptions$.$anonfun$convertToPlayException$2(HttpErrorHandler.scala:381)
+	at scala.Option.map(Option.scala:242)
+	at play.api.http.HttpErrorHandlerExceptions$.convertToPlayException(HttpErrorHandler.scala:380)
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:373)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:264)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:430)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:422)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:454)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:63)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:100)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:100)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: java.lang.NullPointerException: null
+	at models.Recipe.getParentUserId(Recipe.java:131)
+	at views.xml._recipe_partial$.apply(_recipe_partial.template.scala:41)
+	at views.xml.recipes$.$anonfun$apply$1(recipes.template.scala:34)
+	at scala.collection.StrictOptimizedIterableOps.map(StrictOptimizedIterableOps.scala:99)
+	at scala.collection.StrictOptimizedIterableOps.map$(StrictOptimizedIterableOps.scala:86)
+	at scala.collection.convert.JavaCollectionWrappers$JListWrapper.map(JavaCollectionWrappers.scala:103)
+	at views.xml.recipes$.apply(recipes.template.scala:34)
+	at views.xml.recipes$.render(recipes.template.scala:39)
+	at views.xml.recipes.render(recipes.template.scala)
+	at controllers.RecipeController.getAllRecipes(RecipeController.java:39)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$21(Routes.scala:736)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:150)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:149)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$3$$anon$4$$anon$5.invocation(HandlerInvoker.scala:115)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:119)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:33)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:175)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:672)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:431)
+	at play.core.j.HttpExecutionContext.$anonfun$execute$1(HttpExecutionContext.scala:64)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:59)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:393)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:276)
+	at scala.concurrent.impl.Promise$DefaultPromise.map(Promise.scala:146)
+	at scala.concurrent.Future$.apply(Future.scala:672)
+	at play.core.j.JavaAction.apply(JavaAction.scala:176)
+	at play.api.mvc.Action.$anonfun$apply$4(Action.scala:82)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:434)
+	... 12 common frames omitted

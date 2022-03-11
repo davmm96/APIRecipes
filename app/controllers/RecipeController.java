@@ -212,7 +212,6 @@ public class RecipeController extends Controller {
 
     public Result updateRecipe(Http.Request request, String userId, String recipeId)
     {
-
         Form<Recipe> recipeForm = formFactory.form(Recipe.class).bindFromRequest(request);
         Messages messages = messagesApi.preferred(request);
 
@@ -220,20 +219,74 @@ public class RecipeController extends Controller {
             return Results.notAcceptable(recipeForm.errorsAsJson());
         }
 
-        Recipe recipe = recipeForm.get();
+        Recipe recipe_data = recipeForm.get();
         Recipe recipeFound = Recipe.findRecipeById(Long.valueOf(recipeId));
         User userFound = User.findUserById(Long.valueOf(userId));
 
-        if (userFound == null || recipeFound == null) {
+        if (recipeFound == null || userFound == null || !Recipe.recipeExists(recipeFound.getName(),Long.valueOf(userId))) {
             return Results.notFound();
         }
 
-        Recipe recipeAux = recipeFound;
-        recipeFound.setName(recipe.getName());
-        recipeFound.setMinutes(recipe.getMinutes());
-        recipeFound.setServes(recipe.getServes());
+        recipeFound.setName(recipe_data.getName());
+        recipeFound.setMinutes(recipe_data.getMinutes());
+        recipeFound.setServes(recipe_data.getServes());
 
-        userFound.updateRecipe(recipeFound,recipeAux);
+        if(recipe_data.getSteps() != null)
+        {
+            if(recipeFound.getSteps() == null)
+            {
+                Steps steps = new Steps();
+                steps.setSteps(recipe_data.getSteps().getSteps());
+                steps.setParentRecipe(recipeFound);
+            }
+            else
+            {
+                Steps steps = recipeFound.getSteps();
+                steps.setSteps(recipe_data.getSteps().getSteps());
+            }
+        }
+
+        if(recipe_data.getType() != null)
+        {
+            String typeName = recipe_data.getType().getTypeName();
+            RecipeType typeFound = RecipeType.findTypeByName(typeName);
+
+            if(typeFound == null) {
+                RecipeType type = new RecipeType();
+                type.setTypeName(typeName);
+                type.addRecipe(recipeFound);
+                type.save();
+            }
+            else
+            {
+                typeFound.addRecipe(recipeFound);
+                typeFound.update();
+            }
+        }
+
+        if(recipe_data.getIngredients() != null)
+        {
+            List<Ingredient> listIngredients = recipe_data.getIngredients();
+
+            for(Ingredient ingredient : listIngredients)
+            {
+                if(!recipeFound.getIngredients().contains(ingredient))
+                {
+                    if(Ingredient.ingredientExists(ingredient.getName()))
+                    {
+                        Ingredient ingredientFound = Ingredient.findIngredientByName(ingredient.getName());
+                        ingredientFound.addRecipe(recipeFound);
+                    }
+                    else
+                    {
+                        Ingredient ingredient_new = new Ingredient();
+                        ingredient_new.setName(ingredient.getName());
+                        ingredient_new.addRecipe(recipeFound);
+                    }
+                }
+            }
+        }
+
         recipeFound.update();
 
         if (request.accepts("application/xml")) {
@@ -497,6 +550,53 @@ public class RecipeController extends Controller {
         }
     }
 
+    //Type
+    public Result updateType(Http.Request request, String recipeId)
+    {
+        Form<RecipeType> typeForm = formFactory.form(RecipeType.class).bindFromRequest(request);
+        Messages messages = messagesApi.preferred(request);
+
+        if (typeForm.hasErrors()) {
+            return Results.notAcceptable(typeForm.errorsAsJson());
+        }
+
+        RecipeType recipeType = typeForm.get();
+
+        Recipe recipeFound = Recipe.findRecipeById(Long.valueOf(recipeId));
+
+        if (recipeFound == null) {
+            return Results.notFound();
+        }
+
+        if(!recipeFound.getType().getTypeName().equals(recipeType.getTypeName()))
+        {
+            String typeName = recipeType.getTypeName();
+            RecipeType typeFound = RecipeType.findTypeByName(typeName);
+
+            if(typeFound == null) {
+                RecipeType type = new RecipeType();
+                type.setTypeName(recipeType.getTypeName());
+                type.addRecipe(recipeFound);
+                type.save();
+            }
+            else
+            {
+                typeFound.addRecipe(recipeFound);
+                recipeFound.update();
+            }
+        }
+
+        if (request.accepts("application/xml")) {
+            Content content = views.xml.recipe.render(recipeFound);
+            return Results.ok(content);
+        } else if (request.accepts("application/json")) {
+            return ok(Json.toJson(recipeFound));
+        } else {
+            ObjectNode result = Json.newObject();
+            result.put("error", messages.at("conflict_format"));
+            return Results.status(406, result);
+        }
+    }
 
     //Ingredients
     public Result getIngredients(Http.Request request, String recipeId)
