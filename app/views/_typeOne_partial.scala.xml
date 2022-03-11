@@ -1,0 +1,3 @@
+@(typeElement: RecipeType)
+<id>@typeElement.getId()</id>
+<typename>@typeElement.getTypeName()</typename>

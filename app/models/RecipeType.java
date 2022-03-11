@@ -87,7 +87,6 @@ public class RecipeType extends Model
         return recipes;
     }
 
-
     public void addRecipe(Recipe recipe)
     {
         this.recipes.add(recipe);

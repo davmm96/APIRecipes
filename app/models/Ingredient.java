@@ -86,4 +86,10 @@ public class Ingredient extends Model
     {
         this.recipes.remove(recipe);
     }
+
+    public void addRecipe(Recipe recipe)
+    {
+        recipe.addIngredient(this);
+        this.recipes.add(recipe);
+    }
 }

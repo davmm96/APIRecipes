@@ -4,10 +4,10 @@ error_pass=La contraseña debe tener al menos 8 caracteres, una mayuscula y un n
 error_number_min=Este campo debe ser mayor que 0
 error_number_max=Este campo debe ser menor que 10
 
-
 conflict_user_exists=Este nick ya esta en uso, prueba otro
 conflict_type_exists=Este tipo ya existe, prueba otro
 conflict_ingredient_exists=Este ingrediente ya existe, prueba otro
+conflict_recipe_exists=Este usuario ya tiene una recete con este nombre, prueba otro
 conflict_has_steps=Esta receta ya contiene pasos, prueba a editarla
 conflict_id=No puedes cambiar el id
 conflict_format=Este formato no es soportado, solo se admite json o xml

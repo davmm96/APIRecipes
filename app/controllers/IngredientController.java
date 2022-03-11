@@ -127,4 +127,35 @@ public class IngredientController extends Controller
         }
     }
 
+    public Result deleteIngredient(Http.Request request, String ingredientId)
+    {
+        Ingredient ingredientFound = Ingredient.findIngredientById(Long.valueOf(ingredientId));
+
+        if(ingredientFound == null)
+        {
+            return Results.notFound();
+        }
+
+        ingredientFound.delete();
+
+        Messages messages = messagesApi.preferred(request);
+
+        if (request.accepts("application/xml"))
+        {
+            Content content = views.xml.message.render(messages.at("message_ingredient_deleted"));
+            return Results.ok(content);
+        }
+        else if (request.accepts("application/json"))
+        {
+            ObjectNode result = Json.newObject();
+            result.put("message",messages.at("message_ingredient_deleted"));
+            return ok(result);
+        }
+        else {
+            ObjectNode result = Json.newObject();
+            result.put("error",messages.at("conflict_format"));
+            return Results.status(406,result);
+        }
+    }
+
 }

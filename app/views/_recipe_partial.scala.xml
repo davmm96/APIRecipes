@@ -5,5 +5,7 @@
     <minutes>@recipe.getMinutes()</minutes>
     <serves>@recipe.getServes()</serves>
     <steps>@if(recipe.getSteps() != null){@_steps_partial(recipe.getSteps())}</steps>
-    <parentUser>@recipe.getParentUserId()</parentUser>
+    <type>@if(recipe.getType() != null){@_typeOne_partial(recipe.getType())}</type>
+    <ingredients>@if(recipe.getIngredients() != null){@for(ingredient <- recipe.getIngredients()) {@_ingredient_partial(ingredient)}}</ingredients>
+    <parentUserId>@recipe.getParentUserId()</parentUserId>
 </recipe>

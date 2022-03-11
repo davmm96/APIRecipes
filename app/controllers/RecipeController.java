@@ -123,14 +123,21 @@ public class RecipeController extends Controller {
             return Results.notAcceptable(recipeForm.errorsAsJson());
         }
 
-        Recipe recipe = recipeForm.get();
         User userFound = User.findUserById(Long.valueOf(userId));
-
-        Messages messages = messagesApi.preferred(request);
 
         if(userFound == null)
         {
             return Results.notFound();
+        }
+
+        Recipe recipe = recipeForm.get();
+
+        if(Recipe.recipeExists(recipe.getName(),Long.valueOf(userId)))
+        {
+            Messages messages = messagesApi.preferred(request);
+            ObjectNode result = Json.newObject();
+            result.put("conflict",messages.at("conflict_recipe_exists"));
+            return Results.status(409, result);
         }
 
         Recipe recipe_new = new Recipe();
@@ -147,11 +154,12 @@ public class RecipeController extends Controller {
 
         if(recipe.getType() != null) {
 
-            RecipeType typeFound = RecipeType.findTypeByName(recipe.getType().getTypeName());
+            String typeName = recipe.getType().getTypeName();
+            RecipeType typeFound = RecipeType.findTypeByName(typeName);
 
             if(typeFound == null) {
                 RecipeType type = new RecipeType();
-                type.setTypeName(recipe.getType().getTypeName());
+                type.setTypeName(typeName);
                 type.addRecipe(recipe_new);
                 type.save();
             }
@@ -159,6 +167,26 @@ public class RecipeController extends Controller {
             {
                 typeFound.addRecipe(recipe_new);
                 typeFound.update();
+            }
+        }
+
+        if(recipe.getIngredients() != null)
+        {
+            List<Ingredient> listIngredients = recipe.getIngredients();
+
+            for(Ingredient ingredient : listIngredients)
+            {
+                if(Ingredient.ingredientExists(ingredient.getName()))
+                {
+                    Ingredient ingredient_exists = Ingredient.findIngredientByName(ingredient.getName());
+                    ingredient_exists.addRecipe(recipe_new);
+                }
+                else
+                {
+                    Ingredient ingredient_new = new Ingredient();
+                    ingredient_new.setName(ingredient.getName());
+                    ingredient_new.addRecipe(recipe_new);
+                }
             }
         }
 
@@ -175,52 +203,15 @@ public class RecipeController extends Controller {
             return ok(Json.toJson(recipe_new));
         }
         else {
+            Messages messages = messagesApi.preferred(request);
             ObjectNode result = Json.newObject();
             result.put("error",messages.at("conflict_format"));
             return Results.status(406,result);
         }
     }
 
-    public Result deleteRecipe(Http.Request request, String userId, String recipeId)
+    public Result updateRecipe(Http.Request request, String userId, String recipeId)
     {
-        User userFound = User.findUserById(Long.valueOf(userId));
-
-        if(userFound == null)
-        {
-            return Results.notFound();
-        }
-
-        Recipe recipeFound = Recipe.findRecipeById(Long.valueOf(recipeId));
-
-        if(recipeFound == null || !recipeFound.getParentUserId().equals(Long.valueOf(userId)))
-        {
-            return Results.notFound();
-        }
-
-        userFound.removeRecipe(recipeFound);
-        recipeFound.delete();
-
-        Messages messages = messagesApi.preferred(request);
-
-        if (request.accepts("application/xml"))
-        {
-            Content content = views.xml.message.render(messages.at("message_recipe_deleted"));
-            return Results.ok(content);
-        }
-        else if (request.accepts("application/json"))
-        {
-            ObjectNode result = Json.newObject();
-            result.put("message",messages.at("message_recipe_deleted"));
-            return ok(result);
-        }
-        else {
-            ObjectNode result = Json.newObject();
-            result.put("error",messages.at("conflict_format"));
-            return Results.status(406,result);
-        }
-    }
-
-    public Result updateRecipe(Http.Request request, String userId, String recipeId) {
 
         Form<Recipe> recipeForm = formFactory.form(Recipe.class).bindFromRequest(request);
         Messages messages = messagesApi.preferred(request);
@@ -312,9 +303,47 @@ public class RecipeController extends Controller {
         }
     }
 
+    public Result deleteRecipe(Http.Request request, String userId, String recipeId)
+    {
+        User userFound = User.findUserById(Long.valueOf(userId));
+
+        if(userFound == null)
+        {
+            return Results.notFound();
+        }
+
+        Recipe recipeFound = Recipe.findRecipeById(Long.valueOf(recipeId));
+
+        if(recipeFound == null || !recipeFound.getParentUserId().equals(Long.valueOf(userId)))
+        {
+            return Results.notFound();
+        }
+
+        userFound.removeRecipe(recipeFound);
+        recipeFound.delete();
+
+        Messages messages = messagesApi.preferred(request);
+
+        if (request.accepts("application/xml"))
+        {
+            Content content = views.xml.message.render(messages.at("message_recipe_deleted"));
+            return Results.ok(content);
+        }
+        else if (request.accepts("application/json"))
+        {
+            ObjectNode result = Json.newObject();
+            result.put("message",messages.at("message_recipe_deleted"));
+            return ok(result);
+        }
+        else {
+            ObjectNode result = Json.newObject();
+            result.put("error",messages.at("conflict_format"));
+            return Results.status(406,result);
+        }
+    }
+
 
     //Steps
-
     public Result getSteps(Http.Request request, String recipeId)
     {
         Recipe recipeFound = Recipe.findRecipeById(Long.valueOf(recipeId));

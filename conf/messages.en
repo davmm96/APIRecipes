@@ -7,6 +7,7 @@ error_number_max=This field must be less than 10
 conflict_user_exists=The nick already exists, try another nick
 conflict_type_exists=The type already exists, try another one
 conflict_ingredient_exists=The ingredient already exists, try another one
+conflict_recipe_exists=This user already has a recipe with this name, try another one
 conflict_has_steps=The recipe already has steps, try to edit it
 conflict_id=You can't change the id field
 conflict_format=This format is not allowed, just json or xml

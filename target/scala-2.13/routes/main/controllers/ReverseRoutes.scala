@@ -11,7 +11,7 @@ import _root_.play.libs.F
 package controllers {
 
   // @LINE:29
-  class ReverseTypesController(_prefix: => String) {
+  class ReverseRecipeTypeController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
@@ -55,6 +55,12 @@ package controllers {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:40
+    def deleteIngredient(ingredientId:String): Call = {
+      
+      Call("DELETE", _prefix + { _defaultPrefix } + "ingredient/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("ingredientId", ingredientId)))
+    }
   
     // @LINE:37
     def getIngredient(ingredientId:String): Call = {
@@ -113,7 +119,7 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "user/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("userId", userId)) + "/recipes")
     }
   
-    // @LINE:40
+    // @LINE:41
     def deleteIngredients(recipeId:String): Call = {
       
       Call("DELETE", _prefix + { _defaultPrefix } + "recipe/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("recipeId", recipeId)) + "/ingredients")
@@ -149,7 +155,7 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "user/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("userId", userId)) + "/recipes")
     }
   
-    // @LINE:41
+    // @LINE:42
     def deleteIngredient(recipeId:String, ingredientId:String): Call = {
       
       Call("DELETE", _prefix + { _defaultPrefix } + "recipe/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("recipeId", recipeId)) + "/ingredient/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("ingredientId", ingredientId)))

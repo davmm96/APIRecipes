@@ -2,6 +2,7 @@ package models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
@@ -33,18 +34,22 @@ public class Recipe extends Model
     @Constraints.Max(value=10,message = "error_number_max")
     private Integer serves;
 
+
     @ManyToOne
     @JsonBackReference
     private User parentUser;
 
+    @Constraints.Required(message = "error_required")
     @OneToOne(cascade = CascadeType.ALL)
     @JsonManagedReference
     private Steps steps;
 
+    @Constraints.Required(message = "error_required")
     @ManyToOne
     @JsonManagedReference
     private RecipeType type;
 
+    @Constraints.Required(message = "error_required")
     @ManyToMany(cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Ingredient> ingredients = new ArrayList<>();
@@ -109,7 +114,13 @@ public class Recipe extends Model
         return finder.byId(id);
     }
 
-    public static List<Recipe> findAllRecipes(Integer offset){ return finder.query().where().setMaxRows(5).setFirstRow(offset).findList();}
+    public static boolean recipeExists(String name, Long userId)
+    {
+        Recipe recipeFound = finder.query().where().eq("name",name).eq("parent_user_id",userId).findOne();
+        return (recipeFound != null);
+    }
+
+    public static List<Recipe> findAllRecipes(Integer offset){ return finder.query().where().setMaxRows(10).setFirstRow(offset).findList();}
 
     public User getParentUser() {
         return parentUser;
@@ -122,6 +133,10 @@ public class Recipe extends Model
 
     public void setParentUser(User parentUser) {
         this.parentUser = parentUser;
+    }
+
+    public void removeParentUser() {
+        this.parentUser = null;
     }
 
     public Steps getSteps() {
@@ -151,6 +166,11 @@ public class Recipe extends Model
 
     public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public void addIngredient(Ingredient ingredient)
+    {
+        this.ingredients.add(ingredient);
     }
 
     public boolean hasIngredient (Ingredient ingredient)

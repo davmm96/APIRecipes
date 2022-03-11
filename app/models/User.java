@@ -112,6 +112,7 @@ public class User extends Model
 
     public void removeRecipe(Recipe recipe)
     {
+        recipe.removeParentUser();
         this.recipes.remove(recipe);
     }
 }

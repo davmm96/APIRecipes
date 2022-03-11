@@ -16,7 +16,7 @@ import play.twirl.api.Content;
 import javax.inject.Inject;
 import java.util.List;
 
-public class TypesController extends Controller
+public class RecipeTypeController extends Controller
 {
     @Inject
     FormFactory formFactory;

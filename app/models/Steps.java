@@ -37,7 +37,6 @@ public class Steps extends Model
         this.steps = steps;
     }
 
-
     public Long getId() {
         return id;
     }

@@ -11,7 +11,7 @@ import _root_.play.libs.F
 package controllers.javascript {
 
   // @LINE:29
-  class ReverseTypesController(_prefix: => String) {
+  class ReverseRecipeTypeController(_prefix: => String) {
 
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
@@ -20,7 +20,7 @@ package controllers.javascript {
   
     // @LINE:33
     def deleteType: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.TypesController.deleteType",
+      "controllers.RecipeTypeController.deleteType",
       """
         function(typeId0) {
           return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "type/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("typeId", typeId0))})
@@ -30,7 +30,7 @@ package controllers.javascript {
   
     // @LINE:29
     def getAllTypes: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.TypesController.getAllTypes",
+      "controllers.RecipeTypeController.getAllTypes",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "types"})
@@ -40,7 +40,7 @@ package controllers.javascript {
   
     // @LINE:30
     def getType: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.TypesController.getType",
+      "controllers.RecipeTypeController.getType",
       """
         function(typeId0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "type/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("typeId", typeId0))})
@@ -50,7 +50,7 @@ package controllers.javascript {
   
     // @LINE:31
     def createType: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.TypesController.createType",
+      "controllers.RecipeTypeController.createType",
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "types"})
@@ -60,7 +60,7 @@ package controllers.javascript {
   
     // @LINE:32
     def updateType: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.TypesController.updateType",
+      "controllers.RecipeTypeController.updateType",
       """
         function(typeId0) {
           return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "type/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("typeId", typeId0))})
@@ -77,6 +77,16 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:40
+    def deleteIngredient: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.IngredientController.deleteIngredient",
+      """
+        function(ingredientId0) {
+          return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "ingredient/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("ingredientId", ingredientId0))})
+        }
+      """
+    )
   
     // @LINE:37
     def getIngredient: JavaScriptReverseRoute = JavaScriptReverseRoute(
@@ -168,7 +178,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:40
+    // @LINE:41
     def deleteIngredients: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecipeController.deleteIngredients",
       """
@@ -228,7 +238,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:41
+    // @LINE:42
     def deleteIngredient: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecipeController.deleteIngredient",
       """
